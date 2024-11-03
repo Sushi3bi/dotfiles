@@ -1,0 +1,7 @@
+*.sw?
+.idea/
+.DS_Store
+nvim/lazy-lock.json
+zed/conversations
+zed/embeddings
+zed/prompts

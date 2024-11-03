@@ -1,0 +1,59 @@
+[core]
+	excludesFile = ~/.config/git/ignore
+	pager = delta
+	editor = nvim
+
+[interactive]
+	diffFilter = delta --color-only
+
+[delta]
+	line-numbers = true
+	navigate = true  # use n and N to move between diff sections
+	light = false
+
+[alias]
+
+
+[branch]
+	sort = -committerdate
+
+[color]
+	diff = auto
+	status = auto
+	branch = auto
+
+[commit]
+	gpgsign = true
+
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	required = true
+	process = git-lfs filter-process
+
+[merge]
+	conflictstyle = diff3
+	ff = false
+
+[diff]
+	colorMoved = default
+
+[pull]
+	rebase = true
+
+[push]
+	followTags = true
+	autoSetupRemote = true
+
+[rerere]
+	enabled = true
+
+[user]
+	name = Bohdan Pavlov 
+	email = bohdan.pavlov.o@gmail.com
+	signingkey = 0xAE0D6A60BDBBEA7F
+	
+[commit]
+	gpgsign = true
+[init]
+	defaultBranch = main

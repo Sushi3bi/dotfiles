@@ -1,0 +1,40 @@
+#!/bin/bash
+
+dir="$(cd "$(dirname "$0")" && pwd)"
+echo "$dir"
+cd "$dir"
+
+mkdir "$HOME/Library/Application Support/nushell"
+ln -s "$dir/nushell/config.nu" "$HOME/Library/Application Support/nushell/config.nu"
+ln -s "$dir/nushell/env.nu" "$HOME/Library/Application Support/nushell/env.nu"
+
+
+mkdir "$HOME/.config"
+ln -s "$dir/kitty" "$HOME/.config/kitty"
+ln -s "$dir/nvim" "$HOME/.config/nvim"
+ln -s "$dir/zellij" "$HOME/.config/zellij"
+ln -s "$dir/bat" "$HOME/.config/bat"
+ln -s "$dir/btop" "$HOME/.config/btop"
+ln -s "$dir/mpv" "$HOME/.config/mpv"
+ln -s "$dir/yabai" "$HOME/.config/yabai"
+ln -s "$dir/skhd" "$HOME/.config/skhd"
+ln -s "$dir/wezterm" "$HOME/.config/wezterm"
+ln -s "$dir/zed" "$HOME/.config/zed"
+
+mkdir "$HOME/.gnupg"
+ln -s "$dir/gpg/gpg-agent.conf" "$HOME/.gnupg/gpg-agent.conf"
+ln -s "$dir/gpg/gpg.conf" "$HOME/.gnupg/gpg.conf"
+
+mkdir "$HOME/.config/git"
+ln -s "$dir/git/.config/git/ignore" "$HOME/.config/git/ignore"
+
+ln -s "$dir/git/.gitconfig" "$HOME/.gitconfig"
+ln -s "$dir/homebrew/.Brewfile" "$HOME/.Brewfile"
+ln -s "$dir/zsh/.zpath" "$HOME/.zpath"
+ln -s "$dir/zsh/.zprofile" "$HOME/.zprofile"
+ln -s "$dir/zsh/.zshenv" "$HOME/.zshenv"
+ln -s "$dir/zsh/.zshrc" "$HOME/.zshrc"
+ln -s "$dir/ssh/config" "$HOME/.ssh/config"
+
+
+ln -s "$dir/starship/starship.toml" "$HOME/.config/starship.toml"

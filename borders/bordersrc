@@ -1,0 +1,14 @@
+#!/bin/bash
+
+export COLOR_BACKGROUND=0xe01d2021
+export COLOR_ACCENT_BRIGHT=0xe0fe8019
+
+options=(
+	style=round
+	width=4.0
+	hidpi=on
+	active_color=$COLOR_ACCENT_BRIGHT
+	inactive_color=$COLOR_BACKGROUND
+)
+
+borders "${options[@]}"

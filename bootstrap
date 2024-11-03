@@ -1,0 +1,139 @@
+#!/bin/sh
+#
+# Interactive Q&A shell script to setup a new system.
+
+set -e
+
+red="\e[0;31m"
+green="\e[0;32m"
+yellow="\e[0;33m"
+blue="\e[0;34m"
+magenta="\e[0;35m"
+cyan="\e[0;36m"
+reset="\e[0;0m"
+
+colorize() {
+  printf "$cyan>>>$reset %s" "$*" 1>&2
+}
+
+# Make experience more pleasant.
+log() {
+  colorize "$*"
+  printf "\n"
+}
+
+# Make experience more pleasant.
+ask() {
+  colorize "$*"
+  printf "$green (y)es $reset" 1>&2
+  printf "/"
+  printf "$yellow (n)o $reset" 1>&2
+  printf "/"
+  printf "$red (q)uit $reset" 1>&2
+  IFS= read -s -n 1 action
+  case "$action" in
+    y)
+      printf "\n"
+      return 0
+      ;;
+    n)
+      printf "\n"
+      return 1
+      ;;
+    *)
+      exit 1
+      ;;
+  esac
+}
+
+# Keeps sudo priviledge alive throughout the execution of this script.
+enter_sudo_mode() {
+  if ! sudo -n true 2> /dev/null; then
+    log "please enter your password to maintain a sudo session"
+    sudo -v
+    while true; do
+      sudo -n true
+      sleep 60
+      kill -0 "$$" || exit
+    done 2>/dev/null &
+  fi
+}
+# MacOS-specific system changes.
+setup_darwin() {
+  # Close any open System Preferences panes, to prevent them from
+  # overriding settings we're about to change.
+  log "closing System Preferences"
+  osascript -e 'tell application "System Preferences" to quit'
+  enter_sudo_mode
+  log "tuning macOS settings"
+  . bootstrap.macos
+  log "installing all available software updates"
+  sudo softwareupdate -i -a
+  log "installing XCode comand line developer tools"
+  xcode-select --install || true
+}
+
+
+setup_homebrew() {
+  # Make sure we look at least in the default install location.
+  if which brew > /dev/null 2>&1; then
+    log "upgrading existing Homebrew packages"
+    brew upgrade
+  else
+    log "installing Homebrew"
+    homebrew="Homebrew/install/HEAD/install.sh"
+    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/$homebrew)"
+  fi
+}
+
+run_services() {
+  if which yabai > /dev/null 2>&1; then
+    log "start yabai service"
+    yabai --start-service
+  fi
+
+  if which skhd > /dev/null 2>&1; then
+    log "start skhd service"
+    skhd --start-service
+  fi
+  if which borders > /dev/null 2>&1; then
+    log "start JankyBorders service"
+    brew services start borders
+  fi
+}
+
+
+main() {
+  export PATH="/opt/homebrew/bin:$PATH"
+  printf "$blue"
+  echo '                __                        '
+  echo ' _      _____  / /________  ____ ___  ___ '
+  echo '| | /| / / _ \/ / ___/ __ \/ __ `__ \/ _ \'
+  echo '| |/ |/ /  __/ / /__/ /_/ / / / / / /  __/'
+  echo '|__/|__/\___/_/\___/\____/_/ /_/ /_/\___/ '
+  echo
+  printf "$reset"
+  if ask "setup dotfiles?"; then
+    sh "$(dirname "$0")/dots" install -a
+  fi
+  case "$(uname -s)" in
+    Darwin)
+      if ask "setup homebrew?"; then
+        setup_homebrew
+      fi
+      if ask "install Hombrew bundle?"; then
+        log "installing bundled Homebrew packages"
+        brew bundle "--file=$(dirname "$0")/homebrew/.Brewfile" || true
+      fi
+      if ask "tune macOS system settings?"; then
+        setup_darwin
+      fi
+
+      if ask "run services?"; then
+        run_services
+      fi
+      ;;
+  esac
+}
+
+main "$@"

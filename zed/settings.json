@@ -1,0 +1,112 @@
+// Zed settings
+//
+// For information on how to configure Zed, see the Zed
+// documentation: https://zed.dev/docs/configuring-zed
+//
+// To see all of Zed's default settings without changing your
+// custom settings, run the `open default settings` command
+// from the command palette or from `Zed` application menu.
+{
+  "features": {
+    "inline_completion_provider": "none"
+  },
+  "languages": {
+    "TypeScript": {
+      "formatter": {
+        "code_actions": {
+          "source.fixAll.eslint": true
+        }
+      }
+    },
+    "JavaScript": {
+      "formatter": {
+        "code_actions": {
+          "source.fixAll.eslint": true
+        }
+      }
+    }
+  },
+  "theme": "Catppuccin Mocha",
+  "ui_font_size": 14,
+  "buffer_font_size": 12,
+  "terminal": {
+    "shell": {
+      "program": "nu"
+    },
+    "font_family": "MonaspiceNe Nerd Font",
+    "font_features": {
+      "calt": true,
+      "liga": true,
+      "dlig": true,
+      "ss01": true,
+      "ss02": true,
+      "ss03": true,
+      "ss04": true,
+      "ss05": true,
+      "ss06": true,
+      "ss07": true,
+      "ss08": true,
+      "cv06": true,
+      "cv12": true,
+      "cv14": true,
+      "cv16": true,
+      "cv25": true,
+      "cv26": true,
+      "cv28": true,
+      "cv29": true,
+      "cv31": true,
+      "cv32": true
+    },
+    "font_fallbacks": ["Apple Color Emoji", "Symbols Nerd Font"]
+  },
+  "ui_font_family": "MonaspiceNe Nerd Font",
+  "ui_font_fallbacks": ["Apple Color Emoji", "Symbols Nerd Font"],
+  "ui_font_features": {
+    "calt": true,
+    "liga": true,
+    "dlig": true,
+    "ss01": true,
+    "ss02": true,
+    "ss03": true,
+    "ss04": true,
+    "ss05": true,
+    "ss06": true,
+    "ss07": true,
+    "ss08": true,
+    "cv06": true,
+    "cv12": true,
+    "cv14": true,
+    "cv16": true,
+    "cv25": true,
+    "cv26": true,
+    "cv28": true,
+    "cv29": true,
+    "cv31": true,
+    "cv32": true
+  },
+  "buffer_font_family": "MonaspiceNe Nerd Font",
+  "buffer_font_features": {
+    "calt": true,
+    "liga": true,
+    "dlig": true,
+    "ss01": true,
+    "ss02": true,
+    "ss03": true,
+    "ss04": true,
+    "ss05": true,
+    "ss06": true,
+    "ss07": true,
+    "ss08": true,
+    "cv06": true,
+    "cv12": true,
+    "cv14": true,
+    "cv16": true,
+    "cv25": true,
+    "cv26": true,
+    "cv28": true,
+    "cv29": true,
+    "cv31": true,
+    "cv32": true
+  },
+  "buffer_font_fallbacks": ["Apple Color Emoji", "Symbols Nerd Font"]
+}
