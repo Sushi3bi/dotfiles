@@ -21,5 +21,15 @@ wt.on("augment-command-palette", function(_, _)
         end),
       },
     },
+    {
+      brief = "Colorscheme picker",
+      icon = "md_palette",
+      action = require("picker.colorscheme"):pick(),
+    },
+    {
+      brief = "Font size picker",
+      icon = "md_format_font_size_decrease",
+      action = require("picker.font-size"):pick(),
+    },
   }
 end)

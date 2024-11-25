@@ -1,15 +1,15 @@
-local wez = require "wezterm"
-
-local icons = require "utils.icons"
 local fs = require("utils.fn").fs
 
 local Config = {}
 
 Config.default_cwd = fs.home()
 Config.default_prog = { "/opt/homebrew/bin/nu" }
-Config.front_end = "WebGpu"
-Config.animation_fps = 60
-Config.max_fps = 120 --60
 Config.allow_square_glyphs_to_overflow_width = "WhenFollowedBySpace"
+
+-- ref: https://wezfurlong.org/wezterm/config/lua/SshDomain.html
+Config.ssh_domains = {}
+
+-- ref: https://wezfurlong.org/wezterm/multiplexing.html#unix-domains
+Config.unix_domains = {}
 
 return Config

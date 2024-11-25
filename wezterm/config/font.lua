@@ -57,8 +57,40 @@ Config.font_size = 11.5
 --Config.cell_width = 1.0
 --Config.line_height = 1.2
 
---Config.underline_position = -2.5
---Config.underline_thickness = "2px"
+Config.underline_position = -2.5
+Config.underline_thickness = "2px"
 Config.warn_about_missing_glyphs = false
+
+--[[
+Config.font_rules = {
+  {
+    intensity = "Normal",
+    italic = true,
+    font = wt.font_with_fallback {
+      {
+        family = "Monaspace Radon Var",
+        style = "Normal",
+        weight = "Regular",
+        stretch = "Normal",
+        harfbuzz_features = monaspace_features,
+      },
+      { family = "Symbols Nerd Font" },
+    },
+  },
+  {
+    intensity = "Bold",
+    italic = true,
+    font = wt.font_with_fallback {
+      {
+        family = "Monaspace Krypton Var",
+        style = "Italic",
+        weight = "Black",
+        harfbuzz_features = monaspace_features,
+        scale = 1.1,
+      },
+      { family = "Symbols Nerd Font" },
+    },
+  },
+}]]--
 
 return Config

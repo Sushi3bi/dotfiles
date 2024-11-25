@@ -3,9 +3,11 @@ require "events.format-tab-title"
 require "events.new-tab-button-click"
 require "events.augment-command-palette"
 
+
 -- config is based on https://github.com/sravioli/wezterm
 local spec = require "config"
 local wez = require "wezterm"
+
 local config = wez.config_builder()
 config:set_strict_mode(true)
 

@@ -1,8 +1,8 @@
-return require("utils.fn").tbl_merge(
+return require("utils.fn").tbl.merge(
   (require "config.appearance"),
   (require "config.font"),
   (require "config.tab-bar"),
   (require "config.general"),
-  (require "config.hotkeys")
+  (require "config.gpu")
+  --(require "config.hotkeys")
 )
-

@@ -1,28 +1,23 @@
-local wezterm = require "wezterm"
 local Utils = require "utils"
-
 local color = Utils.fn.color
-local fs = Utils.fn.fs
+
+
+---@diagnostic disable-next-line: undefined-field
+local G = require("wezterm").GLOBAL
 
 local Config = {}
 
---local theme = wezterm.get_builtin_color_schemes()["Tokyo Night Moon"] //default is broken
-local theme = wezterm.color.load_scheme(wezterm.config_dir .. "/themes/tokyonight_moon.toml")
---fixes for tab bar
-theme.tab_bar.new_tab.bg_color = theme.foreground
-theme.tab_bar.new_tab.fg_color = theme.background
-theme.tab_bar.new_tab_hover.bg_color = theme.foreground
-theme.tab_bar.new_tab_hover.fg_color = theme.background
+Config.color_schemes = color.get_schemes()
+Config.color_scheme = color.get_scheme()
 
---local theme = Config.color_schemes[Config.color_scheme]
-Config.color_schemes =  { ["Tokyo Night Moon"] = theme }
-Config.color_scheme = "Tokyo Night Moon"
+local theme = Config.color_schemes[Config.color_scheme]
 
 Config.background = {
   {
     source = { Color = theme.background },
     width = "100%",
     height = "100%",
+    opacity = G.opacity or 1,
   },
 }
 
