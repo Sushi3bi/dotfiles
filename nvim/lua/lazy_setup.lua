@@ -18,8 +18,6 @@ require("lazy").setup({
     install = {
         colorscheme = {
             "astrotheme",
-            "gruvbox-baby",
-            "nightfox",
             "catppuccin",
             "tokyonight"
         },

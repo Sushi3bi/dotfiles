@@ -27,6 +27,7 @@ ln -s "$dir/gpg/gpg.conf" "$HOME/.gnupg/gpg.conf"
 
 mkdir "$HOME/.config/git"
 ln -s "$dir/git/.config/git/ignore" "$HOME/.config/git/ignore"
+ln -s "$dir/git/.config/git/themes.gitconfig" "$HOME/.config/git/themes.gitconfig"
 
 ln -s "$dir/git/.gitconfig" "$HOME/.gitconfig"
 ln -s "$dir/homebrew/.Brewfile" "$HOME/.Brewfile"

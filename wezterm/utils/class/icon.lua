@@ -153,6 +153,19 @@ M.Sep = {
 }
 
 M.Bat = {
+  Unknown = {
+    ["00"] = nf.md_battery_outline,
+    ["10"] = nf.md_battery_10,
+    ["20"] = nf.md_battery_20,
+    ["30"] = nf.md_battery_30,
+    ["40"] = nf.md_battery_40,
+    ["50"] = nf.md_battery_50,
+    ["60"] = nf.md_battery_60,
+    ["70"] = nf.md_battery_70,
+    ["80"] = nf.md_battery_80,
+    ["90"] = nf.md_battery_90,
+    ["100"] = nf.md_battery,
+  },
   Full = {
     ["100"] = nf.md_battery,
   },

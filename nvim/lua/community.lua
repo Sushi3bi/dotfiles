@@ -18,7 +18,6 @@ return {
     { import = "astrocommunity.colorscheme.catppuccin" },
     { import = "astrocommunity.colorscheme.tokyonight-nvim" },
     { import = "astrocommunity.colorscheme.gruvbox-baby" },
-    --{ import = "astrocommunity.colorscheme.nightfox-nvim" },
 
     { import = "astrocommunity.diagnostics.trouble-nvim" },
     { import = "astrocommunity.pack.markdown" },

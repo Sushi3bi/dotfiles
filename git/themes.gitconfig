@@ -1,0 +1,29 @@
+[delta "tokyo-night-moon"]
+  dark = true
+  light = false
+  minus-style                   = syntax "#3a273a"
+  minus-non-emph-style          = syntax "#3a273a"
+  minus-emph-style              = syntax "#6b2e43"
+  minus-empty-line-marker-style = syntax "#3a273a"
+  line-numbers-minus-style      = "#e26a75"
+  plus-style                    = syntax "#273849"
+  plus-non-emph-style           = syntax "#273849"
+  plus-emph-style               = syntax "#305f6f"
+  plus-empty-line-marker-style  = syntax "#273849"
+  line-numbers-plus-style       = "#b8db87"
+  line-numbers-zero-style       = "#3b4261"
+
+[delta "tokyo-night-day"]
+  light = true
+  dark = false
+  minus-style                   = syntax "#ddcace"
+  minus-non-emph-style          = syntax "#ddcace"
+  minus-emph-style              = syntax "#d59a9d"
+  minus-empty-line-marker-style = syntax "#ddcace"
+  line-numbers-minus-style      = "#c47981"
+  plus-style                    = syntax "#c8d6dc"
+  plus-non-emph-style           = syntax "#c8d6dc"
+  plus-emph-style               = syntax "#95bec7"
+  plus-empty-line-marker-style  = syntax "#c8d6dc"
+  line-numbers-plus-style       = "#4197a4"
+  line-numbers-zero-style       = "#a8aecb"

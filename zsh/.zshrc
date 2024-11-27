@@ -275,6 +275,7 @@ fi
 
 alias s="kitty +kitten ssh"
 
+alias docker="nerdctl"
 
 # alias: git
 alias g="git"

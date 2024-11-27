@@ -1,15 +1,23 @@
 [core]
 	excludesFile = ~/.config/git/ignore
-	pager = delta
+	
 	editor = nvim
+	#pager = delta
+	pager = delta --detect-dark-light always --features="$(defaults read -globalDomain AppleInterfaceStyle &> /dev/null && echo tokyo-night-moon || echo tokyo-night-day)"
 
-[interactive]
-	diffFilter = delta --color-only
+[interactive]q
+	#diffFilter = delta --color-only --features=interactive
+	#diffFilter = delta --color-only --features=interactive --detect-dark-light always
+	diffFilter = delta --color-only --detect-dark-light always --features="$(defaults read -globalDomain AppleInterfaceStyle &> /dev/null && echo tokyo-night-moon || echo tokyo-night-day)"
+
+[include]
+    path = ~/.config/git/themes.gitconfig
 
 [delta]
-	line-numbers = true
-	navigate = true  # use n and N to move between diff sections
-	light = false
+  true-color = always
+  navigate = true  # use n and N to move between diff sections
+  #light = false
+  features = decorations side-by-side line-numbers
 
 [alias]
 
@@ -57,3 +65,6 @@
 	gpgsign = true
 [init]
 	defaultBranch = main
+[credential]
+	helper = osxkeychain
+
