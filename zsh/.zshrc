@@ -234,6 +234,9 @@ setopt extended_glob
 #                                   Aliases
 # =============================================================================
 
+alias cat="/opt/homebrew/bin/bat --theme=\$(defaults read -globalDomain AppleInterfaceStyle &> /dev/null && echo tokyonight_moon || echo tokyonight_day)"
+alias bat="/opt/homebrew/bin/bat --theme=\$(defaults read -globalDomain AppleInterfaceStyle &> /dev/null && echo tokyonight_moon || echo tokyonight_day)"
+
 # Swift editing and file display.
 alias e="$EDITOR"
 alias v="$VISUAL"

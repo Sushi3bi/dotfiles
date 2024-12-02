@@ -908,6 +908,10 @@ source ~/.cache/starship/init.nu
 #}
 #alias br = (br_cmd | cd ($env.cmd | str replace "cd" "" | str trim))
 
+
+alias cat = /opt/homebrew/bin/bat --theme=\$(try { defaults read -globalDomain AppleInterfaceStyle o+e> /dev/null; echo tokyonight_moon } catch { echo tokyonight_day })
+alias bat = /opt/homebrew/bin/bat --theme=\$(try { defaults read -globalDomain AppleInterfaceStyle o+e> /dev/null; echo tokyonight_moon } catch { echo tokyonight_day })
+
 source ~/.config/broot/launcher/nushell/br
 $env.CARAPACE_BRIDGES = 'zsh,fish,bash,inshellisense'
 source ~/.cache/carapace/init.nu

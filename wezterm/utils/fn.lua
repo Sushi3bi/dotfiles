@@ -543,7 +543,7 @@ M.fs.read_dir = function(directory)
       ioclose(file)
     end
   end
-  
+
   CACHE["read-dir"][directory] = files
   return CACHE["read-dir"][directory]
 end --~~ }}}
@@ -942,21 +942,22 @@ M.str.format_tab_title = function(pane, title, config, max_width)
   if proc == "nvim" then
     ---full title truncation is not necessary since the dir name will be truncated
     is_truncation_needed = false
-    local full_cwd = pane:get_current_working_dir().file_path
+    local full_cwd = pane.current_working_dir and pane.current_working_dir.file_path
+      or pane:get_current_working_dir().file_path
     local cwd = M.fs.basename(full_cwd)
 
     ---instead of truncating the whole title, truncate to length the cwd to ensure that the
     ---right parenthesis always closes.
-    
+
     --if max_width == config.tab_max_width then
     --  cwd = wt_truncate_rx(cwd, max_width - 14) .. "..."
     --end
 
-    if string.len(cwd) >= max_width then
+    if string.len(cwd) >= (max_width - 4) then
       cwd = wt_truncate_rx(cwd, max_width - 12) .. "..."
     end
 
-    if string.len(cwd) >= config.tab_max_width then
+    if string.len(cwd) >= (config.tab_max_width - 4) then
       cwd = wt_truncate_rx(cwd, config.tab_max_width - 14) .. "..."
     end
 
@@ -968,17 +969,19 @@ M.str.format_tab_title = function(pane, title, config, max_width)
 
   ---truncate the tab title when it overflows the maximum available space, then concatenate
   ---some dots to indicate the occurred truncation
-  
+
   --if is_truncation_needed and max_width == config.tab_max_width then
   --  title = wt_truncate_rx(title, max_width - 8) .. "..."
   --end
 
-
   if
     is_truncation_needed
-    and (string.len(title) >= (config.tab_max_width - 4) or string.len(title) >= max_width)
+    and (
+      string.len(title) >= (config.tab_max_width - 4) or string.len(title) >= max_width
+    )
   then
-    local dir = pane.current_working_dir and pane.current_working_dir.file_path or pane:get_current_working_dir().file_path
+    local dir = pane.current_working_dir and pane.current_working_dir.file_path
+      or pane:get_current_working_dir().file_path
     local folderName = M.fs.basename(dir)
     local len = string.len(folderName)
     --wt.log_info("folderName: ", folderName, "len: ", len, "c.max_width: ", config.tab_max_width, "max_width: ", max_width)
