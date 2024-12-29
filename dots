@@ -20,6 +20,7 @@ ln -s "$dir/yabai" "$HOME/.config/yabai"
 ln -s "$dir/skhd" "$HOME/.config/skhd"
 ln -s "$dir/wezterm" "$HOME/.config/wezterm"
 ln -s "$dir/zed" "$HOME/.config/zed"
+ln -s "$dir/ghostty" "$HOME/.config/ghostty"
 
 mkdir "$HOME/.gnupg"
 ln -s "$dir/gpg/gpg-agent.conf" "$HOME/.gnupg/gpg-agent.conf"

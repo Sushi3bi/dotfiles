@@ -72,6 +72,7 @@ $env.config.color_config = {
 $env.config.buffer_editor = "nvim"
 $env.config.show_banner = false
 
+
 source ~/.cache/starship/init.nu
 
 #def-env br_cmd [] {
