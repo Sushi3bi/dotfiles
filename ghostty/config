@@ -31,3 +31,6 @@ font-feature = cv32
 #macos-titlebar-style = hidden
 
 command = /opt/homebrew/bin/nu
+
+#zellij related
+# macos-option-as-alt = true
