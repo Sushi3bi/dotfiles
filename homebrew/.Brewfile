@@ -1,15 +1,14 @@
 
-tap "homebrew/cask-fonts"
+tap "buo/cask-upgrade"
+tap "felixkratz/formulae"
+tap "homebrew/autoupdate"
 tap "homebrew/bundle"
 tap "homebrew/services"
-tap "homebrew/autoupdate"
-tap "buo/cask-upgrade"
-tap "rsteube/homebrew-tap"
-tap "FelixKratz/formulae"
+tap "rsteube/tap"
 #txn2/tap/kubefwd
 
+cask "amethyst"
 cask "battery"
-cask "devtoys"
 cask "eloston-chromium"
 cask "font-fira-code"
 cask "font-fira-code-nerd-font"
@@ -25,9 +24,10 @@ cask "key-codes"
 cask "kitty"
 cask "maccy"
 cask "obs"
+cask "pearcleaner"
 cask "qbittorrent"
-cask "suspicious-package"
 cask "shutter-encoder"
+cask "suspicious-package"
 cask "vlc"
 cask "vscodium"
 cask "wezterm"
@@ -35,12 +35,12 @@ cask "xquartz"
 #cask "karabiner-elements"
 
 brew "ast-grep"
+brew "ca-certificates"
 brew "bat"
 brew "borders"
 brew "btop"
 brew "carapace"
 brew "cargo-nextest"
-brew "codespell"
 brew "coreutils"
 brew "dust"
 brew "fd"
@@ -51,6 +51,7 @@ brew "gh"
 brew "git"
 brew "git-delta"
 brew "gnupg"
+brew "gstreamer"
 brew "hblock"
 brew "htop"
 brew "hub"
@@ -64,24 +65,40 @@ brew "ncdu"
 brew "neofetch"
 brew "neovim"
 brew "nmap"
-brew "node"
 brew "nushell"
 brew "openssh"
-brew "openssl"
 brew "pinentry-mac"
 brew "pyenv"
 brew "ripgrep"
-brew "sccache"
-brew "shellcheck"
 brew "starship"
 brew "the_silver_searcher"
 brew "tlrc"
-brew "tree-sitter"
 brew "wget"
 brew "zellij"
 brew "zoxide"
 brew "zsh"
 brew "zsh-completions"
-brew "jordanbaird-ice"
 
 #brew  autoupdate start 43200 --upgrade --cleanup --immediate --sudo
+
+mas "AdGuard for Safari", id: 1440147259
+mas "Codepoint", id: 6444068649
+mas "DaisyDisk", id: 411643860
+mas "Dark Night", id: 1592844577
+mas "Dark Reader for Safari", id: 1438243180
+mas "Developer", id: 640199958
+mas "Dictionaries", id: 1380563956
+mas "Ice Cubes", id: 6444915884
+mas "iMovie", id: 408981434
+mas "Keynote", id: 409183694
+mas "Kindle", id: 302584613
+mas "Noir", id: 1592917505
+mas "Numbers", id: 409203825
+mas "Pages", id: 409201541
+mas "Redirect Web for Safari", id: 1571283503
+mas "Reeder", id: 1529448980
+mas "StopTheMadness Pro", id: 6471380298
+mas "TestFlight", id: 899247664
+mas "Video Converter", id: 1518836004
+mas "Xcode", id: 497799835
+mas "Yesterday For Old Reddit", id: 1603279883
