@@ -16,7 +16,7 @@ elif which vim &> /dev/null; then
 elif which vi &> /dev/null; then
   export EDITOR="vi"
 fi
-export VISUAL=$EDITOR
+export VISUAL="zed"
 
 # Pager.
 export PAGER="less -S"

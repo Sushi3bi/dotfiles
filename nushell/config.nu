@@ -67,7 +67,7 @@ $env.HOMEBREW_GITHUB_API_TOKEN = (do { security find-generic-password -w -s 'GIT
 
 
 $env.EDITOR = "nvim"
-$env.VISUAL = "code"
+$env.VISUAL = "zed"
 
 
 # config
