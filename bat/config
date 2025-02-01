@@ -1,1 +1,2 @@
---theme="tokyonight_moon"
+--theme-dark="tokyonight_moon"
+--theme-light="tokyonight_day"
