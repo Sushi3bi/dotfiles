@@ -1,3 +1,11 @@
+
+right_format = """$time"""
+
+[time]
+disabled = false
+time_format = "%T %F"
+
+#symbols
 [aws]
 symbol = "  "
 
@@ -118,6 +126,7 @@ Amazon = " "
 Android = " "
 Arch = " "
 Artix = " "
+CachyOS = " "
 CentOS = " "
 Debian = " "
 DragonFly = " "
@@ -139,6 +148,7 @@ MidnightBSD = " "
 Mint = " "
 NetBSD = " "
 NixOS = " "
+Nobara = " "
 OpenBSD = "󰈺 "
 openSUSE = " "
 OracleLinux = "󰌷 "
@@ -199,3 +209,6 @@ format = '(via [$symbol($version )]($style))'
 [zig]
 symbol = " "
 format = '(via [$symbol($version )]($style))'
+
+[gradle]
+symbol = " "

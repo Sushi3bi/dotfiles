@@ -6,7 +6,6 @@ cd "$dir"
 
 mkdir "$HOME/Library/Application Support/nushell"
 ln -s "$dir/nushell/config.nu" "$HOME/Library/Application Support/nushell/config.nu"
-ln -s "$dir/nushell/env.nu" "$HOME/Library/Application Support/nushell/env.nu"
 
 
 mkdir "$HOME/.config"
