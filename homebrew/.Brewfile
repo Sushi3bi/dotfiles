@@ -18,22 +18,16 @@ cask "font-meslo-lg-nerd-font"
 cask "font-monaspace"
 cask "font-monaspace-nerd-font"
 cask "font-symbols-only-nerd-font"
-cask "gdisk"
 cask "jordanbaird-ice"
 cask "keka"
 cask "key-codes"
-cask "kitty"
 cask "maccy"
-cask "obs"
 cask "pearcleaner"
 cask "qbittorrent"
 cask "shutter-encoder"
-cask "suspicious-package"
 cask "vlc"
 cask "vscodium"
-cask "wezterm"
 cask "xquartz"
-#cask "karabiner-elements"
 
 brew "ast-grep"
 brew "ca-certificates"
@@ -78,7 +72,6 @@ brew "starship"
 brew "the_silver_searcher"
 brew "tlrc"
 brew "wget"
-brew "zellij"
 brew "zoxide"
 brew "zsh"
 brew "zsh-completions"
@@ -86,7 +79,6 @@ brew "zsh-completions"
 #brew  autoupdate start 43200 --upgrade --cleanup --immediate --sudo
 
 mas "AdGuard for Safari", id: 1440147259
-mas "Codepoint", id: 6444068649
 mas "DaisyDisk", id: 411643860
 mas "Dark Night", id: 1592844577
 mas "Dark Reader for Safari", id: 1438243180

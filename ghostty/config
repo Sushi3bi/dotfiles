@@ -32,5 +32,3 @@ font-feature = cv32
 
 command = /opt/homebrew/bin/nu
 
-#zellij related
-# macos-option-as-alt = true

@@ -276,8 +276,6 @@ if [[ $OSTYPE = darwin* ]]; then
     && killall Finder"
 fi
 
-alias s="kitty +kitten ssh"
-
 alias docker="nerdctl"
 
 # alias: git
