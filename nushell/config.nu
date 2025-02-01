@@ -68,21 +68,11 @@ $env.config.color_config = {
 }
 
 # custom
-
 $env.config.buffer_editor = "nvim"
 $env.config.show_banner = false
-
+$env.config.render_right_prompt_on_last_line = false
 
 source ~/.cache/starship/init.nu
-
-#def-env br_cmd [] {
-#  let cmd_file = (^mktemp | str trim);
-#    ^broot --outcmd $cmd_file;
-#      let-env cmd = ((open $cmd_file) | str trim);
-#        ^rm $cmd_file;
-#}
-#alias br = (br_cmd | cd ($env.cmd | str replace "cd" "" | str trim))
-
 source ~/.config/broot/launcher/nushell/br
 $env.CARAPACE_BRIDGES = 'zsh,fish,bash,inshellisense'
 source ~/.cache/carapace/init.nu

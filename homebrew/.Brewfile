@@ -26,8 +26,6 @@ cask "pearcleaner"
 cask "qbittorrent"
 cask "shutter-encoder"
 cask "vlc"
-cask "vscodium"
-cask "xquartz"
 
 brew "ast-grep"
 brew "ca-certificates"
