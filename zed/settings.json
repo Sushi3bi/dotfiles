@@ -26,7 +26,11 @@
       }
     }
   },
-  "theme": "Tokyo Night",
+  "theme": {
+    "mode": "system",
+    "light": "Tokyo Night Light",
+    "dark": "Tokyo Night"
+  },
   "ui_font_size": 14,
   "buffer_font_size": 12,
   "terminal": {
