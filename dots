@@ -12,7 +12,6 @@ mkdir "$HOME/.config"
 ln -s "$dir/nvim" "$HOME/.config/nvim"
 ln -s "$dir/bat" "$HOME/.config/bat"
 ln -s "$dir/btop" "$HOME/.config/btop"
-ln -s "$dir/mpv" "$HOME/.config/mpv"
 ln -s "$dir/zed" "$HOME/.config/zed"
 ln -s "$dir/ghostty" "$HOME/.config/ghostty"
 
