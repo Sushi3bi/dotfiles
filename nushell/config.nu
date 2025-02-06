@@ -26,10 +26,8 @@ load-env (/opt/homebrew/bin/brew shellenv
 )
 
 export-env {
-  $env.config = ($env.config | upsert hooks {
-      env_change: {
-          PWD: ($env.config.hooks.env_change.PWD ++
-            [{
+  $env.config = ($env.config | upsert hooks.env_change.PWD {
+      [{
               condition: {|before, after| [.nvmrc .node-version] | path exists | any { |it| $it }}
 	      code: {|before, after|
                 if ('FNM_DIR' in $env) {
@@ -37,8 +35,6 @@ export-env {
 		}
 	      }
 	  }]
-        )
-      }
   })
 }
 
