@@ -14,6 +14,8 @@ ln -s "$dir/bat" "$HOME/.config/bat"
 ln -s "$dir/btop" "$HOME/.config/btop"
 ln -s "$dir/zed" "$HOME/.config/zed"
 ln -s "$dir/ghostty" "$HOME/.config/ghostty"
+ln -s "$dir/yabai" "$HOME/.config/yabai"
+# ln -s "$dir/skhd" "$HOME/.config/skhd"
 
 mkdir "$HOME/.gnupg"
 ln -s "$dir/gpg/gpg-agent.conf" "$HOME/.gnupg/gpg-agent.conf"
