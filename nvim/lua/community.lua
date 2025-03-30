@@ -8,15 +8,12 @@ return {
   -- import/override with your plugins folder
   { import = "astrocommunity.recipes.heirline-nvchad-statusline" },
   { import = "astrocommunity.terminal-integration.flatten-nvim" },
-  { import = "astrocommunity.utility.telescope-fzy-native-nvim" },
   { import = "astrocommunity.editing-support.auto-save-nvim" },
-  --{ import = "astrocommunity.diagnostics.lsp_lines-nvim" },
+  -- { import = "astrocommunity.diagnostics.lsp_lines-nvim" },
   { import = "astrocommunity.git.diffview-nvim" },
   { import = "astrocommunity.syntax.hlargs-nvim" },
 
-  { import = "astrocommunity.colorscheme.catppuccin" },
   { import = "astrocommunity.colorscheme.tokyonight-nvim" },
-  { import = "astrocommunity.colorscheme.gruvbox-baby" },
 
   { import = "astrocommunity.diagnostics.trouble-nvim" },
   { import = "astrocommunity.pack.markdown" },
@@ -31,18 +28,14 @@ return {
   { import = "astrocommunity.pack.yaml" },
 
   { import = "astrocommunity.test.neotest" },
-  --{ import = "astrocommunity.scrolling.satellite-nvim", enabled = false },
   { import = "astrocommunity.scrolling.neoscroll-nvim" },
-  { import = "astrocommunity.indent.indent-tools-nvim" },
 
   { import = "astrocommunity.lsp.lspsaga-nvim" },
-  { import = "astrocommunity.completion.cmp-emoji" },
-  { import = "astrocommunity.completion.cmp-cmdline" },
 
   { import = "astrocommunity.search.grug-far-nvim" },
   { import = "astrocommunity.comment.ts-comments-nvim" },
 
-  -- testing 
+  -- testing
   { import = "astrocommunity.workflow.hardtime-nvim" },
   { import = "astrocommunity.workflow.precognition-nvim" },
 }
