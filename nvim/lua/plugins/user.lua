@@ -45,5 +45,4 @@ return {
       table.insert(opts.adapters, jestTest)
     end,
   },
-  --
 }

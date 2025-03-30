@@ -7,7 +7,6 @@ return {
   { "AstroNvim/astrocommunity" },
   -- import/override with your plugins folder
   { import = "astrocommunity.recipes.heirline-nvchad-statusline" },
-  { import = "astrocommunity.terminal-integration.flatten-nvim" },
   { import = "astrocommunity.editing-support.auto-save-nvim" },
   -- { import = "astrocommunity.diagnostics.lsp_lines-nvim" },
   { import = "astrocommunity.git.diffview-nvim" },
@@ -35,7 +34,7 @@ return {
   { import = "astrocommunity.search.grug-far-nvim" },
   { import = "astrocommunity.comment.ts-comments-nvim" },
 
-  -- testing
+
   { import = "astrocommunity.workflow.hardtime-nvim" },
   { import = "astrocommunity.workflow.precognition-nvim" },
 }
