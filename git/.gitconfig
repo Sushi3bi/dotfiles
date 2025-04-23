@@ -1,11 +1,11 @@
 [core]
 	excludesFile = ~/.config/git/ignore
-	
+
 	editor = nvim
 	#pager = delta
 	pager = delta --detect-dark-light always --features="$(defaults read -globalDomain AppleInterfaceStyle &> /dev/null && echo tokyo-night-moon || echo tokyo-night-day)"
 
-[interactive]q
+[interactive]
 	#diffFilter = delta --color-only --features=interactive
 	#diffFilter = delta --color-only --features=interactive --detect-dark-light always
 	diffFilter = delta --color-only --detect-dark-light always --features="$(defaults read -globalDomain AppleInterfaceStyle &> /dev/null && echo tokyo-night-moon || echo tokyo-night-day)"
@@ -42,12 +42,18 @@
 [merge]
 	conflictstyle = diff3
 	ff = false
+	autoStash = true
 
 [diff]
 	colorMoved = default
 
 [pull]
 	rebase = true
+
+[rebase]
+    autoStash = true
+    autosquash = true
+	updateRefs = true
 
 [push]
 	followTags = true
@@ -57,14 +63,13 @@
 	enabled = true
 
 [user]
-	name = Bohdan Pavlov 
+	name = Bohdan Pavlov
 	email = bohdan.pavlov.o@gmail.com
 	signingkey = 0xAE0D6A60BDBBEA7F
-	
+
 [commit]
 	gpgsign = true
 [init]
 	defaultBranch = main
 [credential]
 	helper = osxkeychain
-
