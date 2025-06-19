@@ -4,6 +4,8 @@ dir="$(cd "$(dirname "$0")" && pwd)"
 echo "$dir"
 cd "$dir"
 
+ln -s "$dir/.hammerspoon" "$HOME/.hammerspoon"
+
 mkdir "$HOME/Library/Application Support/nushell"
 ln -s "$dir/nushell/config.nu" "$HOME/Library/Application Support/nushell/config.nu"
 
