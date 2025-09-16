@@ -1,34 +1,12 @@
-theme = light:tokyonight-day,dark:tokyonight
+theme = light:Tokyonight Day,dark:Tokyonight
 
 #fonts
-font-family = "Symbols Nerd Font Mono" #symbols
 font-family = "MonaspiceNe Nerd Font Mono" #main font
 font-family = "JetBrainsMono Nerd Font" #cyrillic
 font-size = 12
-font-feature = calt
-font-feature = liga 
-font-feature = dlig 
-font-feature = ss01
-font-feature = ss02
-font-feature = ss03
-font-feature = ss04
-font-feature = ss05
-font-feature = ss06
-font-feature = ss07
-font-feature = ss08
-font-feature = cv06
-font-feature = cv12
-font-feature = cv14
-font-feature = cv16
-font-feature = cv25
-font-feature = cv26
-font-feature = cv28
-font-feature = cv29
-font-feature = cv31
-font-feature = cv32
+font-feature = +calt,+liga,+dlig,+ss01,+ss02,+ss03,+ss04,+ss05,+ss06,+ss07,+ss08,+cv06,+cv12,+cv14,+cv16,+cv25,+cv26,+cv28,+cv29,+cv31,+cv32
 
 
 #macos-titlebar-style = hidden
 
 command = /opt/homebrew/bin/nu
-

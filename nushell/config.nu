@@ -57,6 +57,11 @@ $env.PATH = ($env.PATH | split row (char esep)
   | append $"(pyenv root)/shims"
   | uniq)
 
+$env.PYENV_ROOT = "~/.pyenv" | path expand
+if (( $"($env.PYENV_ROOT)/bin" | path type ) == "dir") {
+  $env.PATH = $env.PATH | prepend $"($env.PYENV_ROOT)/bin" }
+$env.PATH = $env.PATH | prepend $"(pyenv root)/shims"
+
 # todo set into private file
 $env.OPENAI_API_KEY = (do { security find-generic-password -w -s 'OPEN_API' -a 'ACCESS_KEY'} | complete).stdout
 $env.HOMEBREW_GITHUB_API_TOKEN = (do { security find-generic-password -w -s 'GITHUB' -a 'HOMEBREW_GITHUB_API_TOKEN' } | complete).stdout
