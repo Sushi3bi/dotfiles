@@ -7,20 +7,21 @@ typeset -U path cdpath fpath manpath
 
 # System $PATH.
 path=(
+  /opt/homebrew/bin
+  /opt/homebrew/sbin
+  /opt/homebrew/opt/openjdk/bin
   /usr/local/bin
   /usr/bin
   /bin
   /usr/local/sbin
   /usr/sbin
   /sbin
-  /opt/homebrew/bin
-  /opt/homebrew/sbin
   /Library/Frameworks/Mono.framework/Versions/Current/bin
   /usr/local/share/dotnet
   ~/.dotnet/tools
   /usr/X11R6/bin
   ~/.deno/bin
-  /opt/homebrew/opt/openjdk/bin
+  $path
 )
 
 # Man pages.

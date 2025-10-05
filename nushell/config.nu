@@ -1,5 +1,4 @@
 # env
-$env.RANCHER_DESKTOP_PATH = '~/.rd/bin'
 $env.CARGO_PATH = '~/.cargo/bin'
 $env.USR_BIN = '/usr/local/bin/'
 $env.DOT_NET = '/usr/local/share/dotnet/'
@@ -49,7 +48,6 @@ if not (which fnm | is-empty) {
 
 $env.PATH = ($env.PATH | split row (char esep)
   | append $"($env.FNM_MULTISHELL_PATH)/bin"
-  | append $env.RANCHER_DESKTOP_PATH
   | append $env.CARGO_PATH
   | append $env.USR_BIN
   | append $env.DOT_NET

@@ -454,7 +454,7 @@ fi
 export NODE_EXTRA_CA_CERTS=/System/Volumes/Data/opt/homebrew/etc/ca-certificates/cert.pem
 
 export HOMEBREW_GITHUB_API_TOKEN=$(security find-generic-password -w -s 'GITHUB' -a 'HOMEBREW_GITHUB_API_TOKEN')
-eval "$(/opt/homebrew/bin/brew shellenv)"  
+eval "$(/opt/homebrew/bin/brew shellenv)"
 
 # Setup GPG for user accounts.
 if [[ $UID != 0 ]]; then
@@ -486,9 +486,6 @@ export rpath="/opt/homebrew/lib/"
 zstyle ':completion:*' format $'\e[2;37mCompleting %d\e[m'
 source <(carapace _carapace)
 
-### MANAGED BY RANCHER DESKTOP START (DO NOT EDIT)
-export PATH="$HOME/.rd/bin:$PATH"
-### MANAGED BY RANCHER DESKTOP END (DO NOT EDIT)
 
 
 # bun completions
