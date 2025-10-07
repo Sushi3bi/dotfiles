@@ -61,8 +61,15 @@ if (( $"($env.PYENV_ROOT)/bin" | path type ) == "dir") {
 $env.PATH = $env.PATH | prepend $"(pyenv root)/shims"
 
 # todo set into private file
-$env.OPENAI_API_KEY = (do { security find-generic-password -w -s 'OPEN_API' -a 'ACCESS_KEY'} | complete).stdout
-$env.HOMEBREW_GITHUB_API_TOKEN = (do { security find-generic-password -w -s 'GITHUB' -a 'HOMEBREW_GITHUB_API_TOKEN' } | complete).stdout
+let openai = (do -i { security find-generic-password -w -s 'OPEN_API' -a 'ACCESS_KEY' } | complete)
+if ($openai.exit_code == 0) and (($openai.stdout | str length) > 0) {
+  $env.OPENAI_API_KEY = $openai.stdout
+}
+
+let brew_token = (do -i { security find-generic-password -w -s 'GITHUB' -a 'HOMEBREW_GITHUB_API_TOKEN' } | complete)
+if ($brew_token.exit_code == 0) and (($brew_token.stdout | str length) > 0) {
+  $env.HOMEBREW_GITHUB_API_TOKEN = $brew_token.stdout
+}
 
 
 $env.EDITOR = "nvim"

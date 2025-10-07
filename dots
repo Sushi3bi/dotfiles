@@ -1,36 +1,158 @@
-#!/bin/bash
+#!/usr/bin/env bash
+# Idempotent dotfiles linker: backs up existing files/dirs and creates symlinks.
+# Usage:
+#   ./dots                 # install links
+#   ./dots install -a      # compatible with existing bootstrap invocation (extra args ignored)
 
-dir="$(cd "$(dirname "$0")" && pwd)"
-echo "$dir"
-cd "$dir"
+set -euo pipefail
 
-ln -s "$dir/.hammerspoon" "$HOME/.hammerspoon"
+# ------------- Helpers -------------
 
-mkdir "$HOME/Library/Application Support/nushell"
-ln -s "$dir/nushell/config.nu" "$HOME/Library/Application Support/nushell/config.nu"
+# Print colored messages when TTY is present
+is_tty() { [[ -t 1 ]]; }
+color() { is_tty && printf "\e[%sm" "$1" || true; }
+reset() { is_tty && printf "\e[0m" || true; }
+info() { printf "%b[INFO]%b %s\n" "$(color 36)" "$(reset)" "$*"; }
+warn() { printf "%b[WARN]%b %s\n" "$(color 33)" "$(reset)" "$*"; }
+err()  { printf "%b[ERR ]%b %s\n" "$(color 31)" "$(reset)" "$*" >&2; }
 
+ensure_dir() { mkdir -p "$1"; }
 
-mkdir "$HOME/.config"
-ln -s "$dir/nvim" "$HOME/.config/nvim"
-ln -s "$dir/bat" "$HOME/.config/bat"
-ln -s "$dir/btop" "$HOME/.config/btop"
-ln -s "$dir/zed" "$HOME/.config/zed"
-ln -s "$dir/ghostty" "$HOME/.config/ghostty"
-mkdir "$HOME/.gnupg"
-ln -s "$dir/gpg/gpg-agent.conf" "$HOME/.gnupg/gpg-agent.conf"
-ln -s "$dir/gpg/gpg.conf" "$HOME/.gnupg/gpg.conf"
+# Resolve canonical absolute path (follows symlinks)
+canonical_path() {
+  # Prefer perl (present on macOS by default)
+  if command -v perl >/dev/null 2>&1; then
+    perl -MCwd -e 'print Cwd::abs_path(shift) // q{}' -- "$1"
+    return 0
+  fi
+  # Fallback: best-effort using cd + pwd (does not fully resolve symlinks)
+  ( cd "$(dirname -- "$1")" >/dev/null 2>&1 && printf '%s/%s' "$(pwd -P)" "$(basename -- "$1")" ) || printf '%s' "$1"
+}
 
-mkdir "$HOME/.config/git"
-ln -s "$dir/git/.config/git/ignore" "$HOME/.config/git/ignore"
-ln -s "$dir/git/.config/git/themes.gitconfig" "$HOME/.config/git/themes.gitconfig"
+# Backup destination if it exists and isn't already the desired link
+backup_dir=""
+init_backup_dir() {
+  if [[ -z "${backup_dir}" ]]; then
+    backup_dir="${HOME}/.dotfiles_backup_$(date +%Y%m%d%H%M%S)"
+    ensure_dir "${backup_dir}"
+    info "Created backup directory: ${backup_dir}"
+  fi
+}
 
-ln -s "$dir/git/.gitconfig" "$HOME/.gitconfig"
-ln -s "$dir/homebrew/.Brewfile" "$HOME/.Brewfile"
-ln -s "$dir/zsh/.zpath" "$HOME/.zpath"
-ln -s "$dir/zsh/.zprofile" "$HOME/.zprofile"
-ln -s "$dir/zsh/.zshenv" "$HOME/.zshenv"
-ln -s "$dir/zsh/.zshrc" "$HOME/.zshrc"
-ln -s "$dir/ssh/config" "$HOME/.ssh/config"
+# Test if $dst is a symlink pointing to $src (allowing for relative targets)
+is_correct_link() {
+  local src="$1" dst="$2"
+  [[ -L "$dst" ]] || return 1
 
+  local link_target
+  link_target="$(readlink "$dst")" || return 1
 
-ln -s "$dir/starship/starship.toml" "$HOME/.config/starship.toml"
+  local resolved_src resolved_target
+  resolved_src="$(canonical_path "$src")"
+
+  if [[ "$link_target" = /* ]]; then
+    resolved_target="$(canonical_path "$link_target")"
+  else
+    # Resolve relative link target against the link's directory
+    resolved_target="$(canonical_path "$(dirname "$dst")/$link_target")"
+  fi
+
+  [[ -n "$resolved_src" && -n "$resolved_target" && "$resolved_src" == "$resolved_target" ]]
+}
+
+# Link src -> dst safely, backing up any existing non-matching target
+link_path() {
+  local src="$1" dst="$2"
+
+  ensure_dir "$(dirname "$dst")"
+
+  # Already correct link
+  if is_correct_link "$src" "$dst"; then
+    info "Already linked: $dst -> $src"
+    return 0
+  fi
+
+  # Backup existing file/dir/symlink that is not the desired link
+  if [[ -e "$dst" || -L "$dst" ]]; then
+    init_backup_dir
+    local base name suffix=0 backup_target
+    base="$(basename "$dst")"
+    name="$base"
+    backup_target="${backup_dir}/${name}"
+    # Avoid collisions inside backup dir
+    while [[ -e "$backup_target" || -L "$backup_target" ]]; do
+      suffix=$((suffix + 1))
+      backup_target="${backup_dir}/${name}.${suffix}"
+    done
+    mv "$dst" "$backup_target"
+    warn "Backed up existing path: $dst -> $backup_target"
+  fi
+
+  ln -sfn "$src" "$dst"
+  info "Linked: $dst -> $src"
+}
+
+# ------------- Main -------------
+
+main() {
+  if [[ -z "${HOME:-}" ]]; then
+    err "HOME is not set. Aborting."
+    exit 1
+  fi
+
+  # Determine repo root for dotfiles
+  # Resolve to a physical path without requiring GNU readlink
+  local dotdir
+  dotdir="$(cd "$(dirname "$0")" && pwd -P)"
+  info "Dotfiles directory: $dotdir"
+
+  # Ensure common directories exist (idempotent)
+  ensure_dir "$HOME/.config"
+  ensure_dir "$HOME/.ssh"
+  ensure_dir "$HOME/Library/Application Support/nushell"
+  ensure_dir "$HOME/.gnupg"
+  chmod 700 "$HOME/.gnupg" 2>/dev/null || true
+  ensure_dir "$HOME/.config/git"
+
+  # Link map (src<TAB>dst); TAB-delimited to allow spaces in paths
+  # Note: fixed paths for git ignore/themes to match repository layout
+  while IFS=$'\t' read -r src dst; do
+    # Skip empty lines
+    [[ -z "$src" ]] && continue
+    link_path "$src" "$dst"
+  done <<EOF
+${dotdir}/.hammerspoon	${HOME}/.hammerspoon
+${dotdir}/nushell/config.nu	${HOME}/Library/Application Support/nushell/config.nu
+${dotdir}/nvim	${HOME}/.config/nvim
+${dotdir}/bat	${HOME}/.config/bat
+${dotdir}/btop	${HOME}/.config/btop
+${dotdir}/zed	${HOME}/.config/zed
+${dotdir}/ghostty	${HOME}/.config/ghostty
+${dotdir}/gpg/gpg-agent.conf	${HOME}/.gnupg/gpg-agent.conf
+${dotdir}/gpg/gpg.conf	${HOME}/.gnupg/gpg.conf
+${dotdir}/git/ignore	${HOME}/.config/git/ignore
+${dotdir}/git/themes.gitconfig	${HOME}/.config/git/themes.gitconfig
+${dotdir}/git/.gitconfig	${HOME}/.gitconfig
+${dotdir}/homebrew/.Brewfile	${HOME}/.Brewfile
+${dotdir}/zsh/.zpath	${HOME}/.zpath
+${dotdir}/zsh/.zprofile	${HOME}/.zprofile
+${dotdir}/zsh/.zshenv	${HOME}/.zshenv
+${dotdir}/zsh/.zshrc	${HOME}/.zshrc
+${dotdir}/ssh/config	${HOME}/.ssh/config
+${dotdir}/starship/starship.toml	${HOME}/.config/starship.toml
+EOF
+
+  info "All links created."
+  if [[ -n "${backup_dir:-}" ]]; then
+    info "Backups saved under: ${backup_dir}"
+  fi
+}
+
+# Accept "install" or no argument (ignore extra args for compatibility)
+if [[ "${1:-install}" == "install" ]]; then
+  main "$@"
+else
+  err "Unknown command: ${1:-}"
+  printf "Usage: %s [install]\n" "$0"
+  exit 2
+fi

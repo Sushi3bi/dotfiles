@@ -9,6 +9,13 @@ Host *
   AddressFamily inet
   Compression yes
   IdentitiesOnly yes
+  ServerAliveInterval 30
+  ServerAliveCountMax 3
+  ControlMaster auto
+  ControlPath ~/.ssh/cm-%r@%h:%p
+  ControlPersist 10m
+  UpdateHostKeys yes
+  StrictHostKeyChecking ask
   ForwardX11 no
   #KexAlgorithms curve25519-sha256@libssh.org
   #HostKeyAlgorithms ssh-ed25519

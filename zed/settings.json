@@ -7,8 +7,12 @@
 // custom settings, run the `open default settings` command
 // from the command palette or from `Zed` application menu.
 {
-  "features": {
-    "inline_completion_provider": "none"
+  "agent": {
+    "default_model": {
+      "provider": "openai",
+      "model": "gpt-5"
+    },
+    "model_parameters": []
   },
   "languages": {
     "TypeScript": {
