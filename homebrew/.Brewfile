@@ -6,9 +6,10 @@ tap "homebrew/services"
 tap "koekeishiya/formulae"
 tap "oven-sh/bun"
 tap "rsteube/tap"
+tap "gromgit/brewtils"
 # tap "txn2/tap"
 
-cask "battery"
+cask "batt"
 cask "eloston-chromium"
 cask "font-arial"
 cask "font-fira-code"
@@ -35,6 +36,7 @@ brew "bat"
 brew "broot"
 brew "btop"
 brew "bun"
+brew "bold-brew"
 brew "carapace"
 brew "cargo-nextest"
 brew "coreutils"
@@ -60,10 +62,12 @@ brew "nmap"
 brew "nushell"
 brew "openssh"
 brew "pinentry-mac"
+brew "posting"
 brew "pyenv"
 brew "ripgrep"
 brew "starship"
 brew "the_silver_searcher"
+brew "tealdeer"
 brew "xh"
 brew "yabai"
 brew "zoxide"
@@ -72,13 +76,10 @@ brew "zsh-completions"
 
 #brew  autoupdate start 43200 --upgrade --cleanup --immediate --sudo
 
-mas "AdGuard for Safari", id: 1440147259
 mas "DaisyDisk", id: 411643860
-mas "Dark Night", id: 1592844577
-mas "Dark Reader for Safari", id: 1438243180
 mas "Developer", id: 640199958
 mas "Dictionaries", id: 1380563956
-mas "Ice Cubes", id: 6444915884
+mas "Ice Cubes", id: 6444915884n
 mas "iMovie", id: 408981434
 mas "Keynote", id: 409183694
 mas "Kindle", id: 302584613
