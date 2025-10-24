@@ -106,4 +106,4 @@ source $"($nu.cache-dir)/carapace.nu"
 # zoxide init nushell | save -f ~/.zoxide.nu
 source ~/.zoxide.nu
 
-use '/Users/bohdanpavlov/.config/broot/launcher/nushell/br' *
+use '~/.config/broot/launcher/nushell/br' *
