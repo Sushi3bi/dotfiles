@@ -65,7 +65,7 @@
 [user]
 	name = Bohdan Pavlov
 	email = bohdan.pavlov.o@gmail.com
-	signingkey = 0xAE0D6A60BDBBEA7F
+	signingkey = 0xB4AD2CF8A43E0326
 
 [commit]
 	gpgsign = true

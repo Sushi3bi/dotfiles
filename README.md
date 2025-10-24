@@ -8,28 +8,6 @@
 
 ## Setup
 
-### Using Makefile (recommended)
-
-```bash
-# run interactive bootstrap
-make bootstrap
-
-# create/refresh symlinks
-make link
-
-# brew bundle install/update and cleanup
-make brew
-make brew-clean
-
-# apply macOS defaults
-make macos
-
-# rebuild bat theme cache (after linking)
-make bat-cache
-```
-
-### Manual
-
 ```bash
 ./bootstrap
 ./dots

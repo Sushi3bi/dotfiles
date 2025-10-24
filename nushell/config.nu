@@ -80,7 +80,9 @@ $env.VISUAL = "zed"
 $env.config.buffer_editor = "nvim"
 $env.config.show_banner = false
 
-source ~/.cache/starship/init.nu
+
+# mkdir ($nu.data-dir | path join "vendor/autoload")
+# starship init nu | save -f ($nu.data-dir | path join "vendor/autoload/starship.nu")
 
 $env.TRANSIENT_PROMPT_COMMAND = ^starship module character
 $env.TRANSIENT_PROMPT_INDICATOR = ""
@@ -96,5 +98,12 @@ $env.TRANSIENT_PROMPT_COMMAND_RIGHT = { ||
 
 source ~/.config/broot/launcher/nushell/br
 $env.CARAPACE_BRIDGES = 'zsh,fish,bash,inshellisense'
-source ~/.cache/carapace/init.nu
+
+mkdir $"($nu.cache-dir)"
+# carapace _carapace nushell | save --force $"($nu.cache-dir)/carapace.nu"
+source $"($nu.cache-dir)/carapace.nu"
+
+# zoxide init nushell | save -f ~/.zoxide.nu
 source ~/.zoxide.nu
+
+use '/Users/bohdanpavlov/.config/broot/launcher/nushell/br' *

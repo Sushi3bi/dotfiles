@@ -61,3 +61,4 @@ eval "$(pyenv init -)"
 
 #libretranlate
 export LT_LOAD_ONLY="en,uk,ja"
+. "$HOME/.cargo/env"
