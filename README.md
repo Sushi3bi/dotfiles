@@ -17,12 +17,6 @@ make bootstrap
 # create/refresh symlinks
 make link
 
-# unlink then link
-make relink
-
-# remove symlinks created by this repo
-make unlink
-
 # brew bundle install/update and cleanup
 make brew
 make brew-clean

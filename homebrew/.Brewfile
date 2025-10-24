@@ -20,8 +20,9 @@ cask "font-monaspace"
 cask "font-monaspace-nerd-font"
 cask "font-open-sans"
 cask "font-symbols-only-nerd-font"
+brew "ghostty"
 cask "hammerspoon"
-cask "jordanbaird-ice"
+# cask "jordanbaird-ice"
 cask "keka"
 cask "key-codes"
 cask "maccy"
@@ -44,7 +45,6 @@ brew "dust"
 brew "fd"
 brew "fnm"
 brew "fzf"
-brew "ghostty"
 brew "git"
 brew "git-delta"
 brew "gitui"
@@ -79,7 +79,7 @@ brew "zsh-completions"
 mas "DaisyDisk", id: 411643860
 mas "Developer", id: 640199958
 mas "Dictionaries", id: 1380563956
-mas "Ice Cubes", id: 6444915884n
+mas "Ice Cubes", id: 6444915884
 mas "iMovie", id: 408981434
 mas "Keynote", id: 409183694
 mas "Kindle", id: 302584613
