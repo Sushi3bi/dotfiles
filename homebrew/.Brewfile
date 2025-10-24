@@ -95,14 +95,16 @@ brew "zsh-completions"
 mas "DaisyDisk", id: 411643860
 mas "Developer", id: 640199958
 mas "Dictionaries", id: 1380563956
+mas "DNSecure", id: 1533413232
+mas "Ghostery Privacy Ad Blocker", id: 6504861501
 mas "Ice Cubes", id: 6444915884
 mas "iMovie", id: 408981434
 mas "Keynote", id: 409183694
 mas "Noir", id: 1592917505
 mas "Numbers", id: 409203825
 mas "Pages", id: 409201541
-mas "Redirect Web for Safari", id: 1571283503
-# mas "Reeder", id: 1529448980 # this is old reader. We need new.
+mas "Redirect Web", id: 1571283503
+mas "Reeder", id: 6475002485
 mas "StopTheMadness Pro", id: 6471380298
 mas "TestFlight", id: 899247664
 mas "Video Converter", id: 1518836004
