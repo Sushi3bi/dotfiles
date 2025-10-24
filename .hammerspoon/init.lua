@@ -13,9 +13,19 @@ APPS = {
     { shortcut = "9", name = "Zed" },
 }
 
+-- Toggle focus: if app is frontmost, hide it; otherwise launch/focus
+local function toggleApp(name)
+    local app = hs.application.get(name)
+    if app and app:isFrontmost() then
+        app:hide()
+    else
+        hs.application.launchOrFocus(name)
+    end
+end
+
 -- Bind application shortcuts
 for _, app in ipairs(APPS) do
     hs.hotkey.bind(MODIFIERS, app.shortcut, function()
-        hs.application.launchOrFocus(app.name)
+        toggleApp(app.name)
     end)
 end

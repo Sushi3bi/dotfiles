@@ -6,15 +6,17 @@
 - **Colorscheme**: [Tokyonight](https://github.com/folke/tokyonight.nvim)
 - **Font**: [Monaspace Neon](https://github.com/githubnext/monaspace) from [Nerd Fonts](https://github.com/ryanoasis/nerd-fonts)
 
-## Bootstrap
+## Setup
 
 ```bash
-    ./bootstrap
+./bootstrap
+./dots
 ```
 
-## Dotfile Install
-
-Add aliases for dot files
-```bash
-    ./dots 
-```
+### Notes
+- The dots script is idempotent and backs up replaced files under ~/.dotfiles_backup_YYYYmmddHHMMSS
+- macOS-specific: bootstrap.macos applies system defaults; review before running
+- Homebrew bundle uses homebrew/.Brewfile; mas requires App Store login
+- Nushell optionally reads OPENAI_API_KEY and HOMEBREW_GITHUB_API_TOKEN from Keychain if present
+- Zed agent model in settings.json assumes valid API access
+- Git uses delta; themes auto-switch with macOS light/dark

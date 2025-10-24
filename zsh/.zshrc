@@ -490,3 +490,5 @@ source <(carapace _carapace)
 
 # bun completions
 [ -s "$HOME/.bun/_bun" ] && source "$HOME/.bun/_bun"
+
+source "$HOME/.config/broot/launcher/bash/br"

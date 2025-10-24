@@ -51,12 +51,15 @@ enter_sudo_mode() {
   if ! sudo -n true 2> /dev/null; then
     log "please enter your password to maintain a sudo session"
     sudo -v
-    while true; do
-      sudo -n true
-      sleep 60
-      kill -0 "$$" || exit
-    done 2>/dev/null &
   fi
+  # Keep-alive: update existing sudo time stamp until the script has finished
+  (
+    while true; do
+      sudo -n true; sleep 60; kill -0 "$$" || exit
+    done
+  ) 2>/dev/null &
+  SUDO_KEEPALIVE_PID=$!
+  trap 'kill "${SUDO_KEEPALIVE_PID}" 2>/dev/null || true' EXIT
 }
 # MacOS-specific system changes.
 setup_darwin() {
@@ -68,36 +71,29 @@ setup_darwin() {
   log "tuning macOS settings"
   . bootstrap.macos
   log "installing all available software updates"
-  sudo softwareupdate -i -a
-  log "installing XCode comand line developer tools"
-  xcode-select --install || true
+  sudo softwareupdate -i -a || true
+  log "checking Xcode Command Line Tools"
+  if xcode-select -p >/dev/null 2>&1; then
+    log "Xcode Command Line Tools already installed"
+  else
+    xcode-select --install || true
+  fi
 }
 
 
 setup_homebrew() {
   # Make sure we look at least in the default install location.
-  if which brew > /dev/null 2>&1; then
-    log "upgrading existing Homebrew packages"
+  if command -v brew >/dev/null 2>&1; then
+    log "updating Homebrew and upgrading packages"
+    brew update
     brew upgrade
   else
     log "installing Homebrew"
     homebrew="Homebrew/install/HEAD/install.sh"
     /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/$homebrew)"
+    export PATH="/opt/homebrew/bin:$PATH"
   fi
 }
-
-run_services() {
-  if which yabai > /dev/null 2>&1; then
-    log "start yabai service"
-    yabai --start-service
-  fi
-
-  if which skhd > /dev/null 2>&1; then
-    log "start skhd service"
-    skhd --start-service
-  fi
-}
-
 
 main() {
   export PATH="/opt/homebrew/bin:$PATH"
@@ -120,13 +116,13 @@ main() {
       if ask "install Hombrew bundle?"; then
         log "installing bundled Homebrew packages"
         brew bundle "--file=$(dirname "$0")/homebrew/.Brewfile" || true
+        if ask "cleanup Homebrew bundle (remove unmanaged)?"; then
+          log "cleaning up unmanaged Homebrew packages"
+          brew bundle cleanup "--file=$(dirname "$0")/homebrew/.Brewfile" --force || true
+        fi
       fi
       if ask "tune macOS system settings?"; then
         setup_darwin
-      fi
-
-      if ask "run services?"; then
-        run_services
       fi
       ;;
   esac
