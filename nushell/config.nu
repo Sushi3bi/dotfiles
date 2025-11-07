@@ -80,10 +80,6 @@ $env.VISUAL = "zed"
 $env.config.buffer_editor = "nvim"
 $env.config.show_banner = false
 
-
-# mkdir ($nu.data-dir | path join "vendor/autoload")
-# starship init nu | save -f ($nu.data-dir | path join "vendor/autoload/starship.nu")
-
 $env.TRANSIENT_PROMPT_COMMAND = ^starship module character
 $env.TRANSIENT_PROMPT_INDICATOR = ""
 $env.TRANSIENT_PROMPT_INDICATOR_VI_INSERT = ""
@@ -96,14 +92,24 @@ $env.TRANSIENT_PROMPT_COMMAND_RIGHT = { ||
     )
 }
 
+let dir = ($nu.data-dir | path join 'vendor/autoload')
+if not ($dir | path exists) {
+  mkdir $dir
+}
+let starship_file = ($nu.data-dir | path join 'vendor/autoload/starship.nu')
+if not ($starship_file | path exists) {
+  starship init nu | save -f $starship_file
+}
+let carapace_file = ($nu.data-dir | path join 'vendor/autoload/carapace.nu')
+if not ($carapace_file | path exists) {
+  carapace _carapace nushell | save -f $carapace_file
+}
+
+let zoxide_file = ($nu.data-dir | path join 'vendor/autoload/zoxide.nu')
+if not ($zoxide_file | path exists) {
+  zoxide init nushell | save -f $zoxide_file
+}
+
 source ~/.config/broot/launcher/nushell/br
 $env.CARAPACE_BRIDGES = 'zsh,fish,bash,inshellisense'
-
-mkdir $"($nu.cache-dir)"
-# carapace _carapace nushell | save --force $"($nu.cache-dir)/carapace.nu"
-source $"($nu.cache-dir)/carapace.nu"
-
-# zoxide init nushell | save -f ~/.zoxide.nu
-source ~/.zoxide.nu
-
 use '~/.config/broot/launcher/nushell/br' *
