@@ -16,7 +16,6 @@ cask "font-open-sans"
 cask "font-symbols-only-nerd-font"
 cask "ghostty"
 cask "hammerspoon"
-# cask "jordanbaird-ice"
 cask "keka"
 cask "key-codes"
 cask "maccy"
@@ -24,13 +23,12 @@ cask "pearcleaner"
 cask "shutter-encoder"
 cask "transmission"
 cask "vlc"
-
-#---new staff
+cask "anki"
 cask "balenaetcher"
 cask "betterdisplay"
 cask "boosteroid"
 cask "blender"
-cask "chatgpt"
+# cask "chatgpt"
 cask "clearvpn"
 cask "cyberduck"
 cask "elmedia-player"
@@ -44,8 +42,8 @@ cask "signal"
 cask "soundsource"
 cask "stats"
 cask "superkey"
-cask "tradingview"
-#---end
+# cask "tradingview"t
+
 
 brew "ast-grep"
 brew "batt"
@@ -58,6 +56,7 @@ brew "carapace"
 brew "cargo-nextest"
 brew "coreutils"
 brew "dust"
+brew "eza"
 brew "fd"
 brew "fnm"
 brew "fzf"
@@ -65,6 +64,7 @@ brew "gh"
 brew "git"
 brew "git-delta"
 brew "gitui"
+brew "glow" #Render markdown on the CLI
 brew "gnupg"
 brew "hblock"
 brew "htop"
@@ -96,16 +96,17 @@ brew "zsh-completions"
 
 mas "DaisyDisk", id: 411643860
 mas "Developer", id: 640199958
-mas "Dictionaries", id: 1380563956
+# mas "Dictionaries", id: 1380563956
 mas "DNSecure", id: 1533413232
-mas "Ghostery Privacy Ad Blocker", id: 6504861501
+# mas "Ghostery Privacy Ad Blocker", id: 6504861501
+mas "uBlock Origin Lite", id: 6745342698
 mas "Ice Cubes", id: 6444915884
 mas "iMovie", id: 408981434
 mas "Keynote", id: 409183694
 mas "Noir", id: 1592917505
 mas "Numbers", id: 409203825
 mas "Pages", id: 409201541
-mas "Redirect Web", id: 1571283503
+# mas "Redirect Web", id: 1571283503
 mas "Reeder", id: 6475002485
 mas "StopTheMadness Pro", id: 6471380298
 mas "TestFlight", id: 899247664

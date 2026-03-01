@@ -110,6 +110,6 @@ if not ($zoxide_file | path exists) {
   zoxide init nushell | save -f $zoxide_file
 }
 
-source ~/.config/broot/launcher/nushell/br
+source ~/.config/broot/launcher/nushell/boot
 $env.CARAPACE_BRIDGES = 'zsh,fish,bash,inshellisense'
-use '~/.config/broot/launcher/nushell/br' *
+use '~/.config/broot/launcher/nushell/boot' *
