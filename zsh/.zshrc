@@ -11,78 +11,6 @@ zle -N self-insert url-quote-magic
 #                                   Plugins
 # =============================================================================
 
-# powerlevel9k prompt theme
-DEFAULT_USER=$USER
-POWERLEVEL9K_MODE='nerdfont-complete'
-#POWERLEVEL9K_SHORTEN_DIR_LENGTH=3
-#POWERLEVEL9K_SHORTEN_STRATEGY="truncate_from_right"
-POWERLEVEL9K_DIR_PATH_SEPARATOR="%F{cyan}/%F{blue}"
-POWERLEVEL9K_LEFT_SEGMENT_SEPARATOR=''
-POWERLEVEL9K_RIGHT_SEGMENT_SEPARATOR=''
-POWERLEVEL9K_LEFT_SUBSEGMENT_SEPARATOR=''
-POWERLEVEL9K_RIGHT_SUBSEGMENT_SEPARATOR=''
-POWERLEVEL9K_PROMPT_ON_NEWLINE=true
-POWERLEVEL9K_RPROMPT_ON_NEWLINE=true
-POWERLEVEL9K_MULTILINE_FIRST_PROMPT_PREFIX="%F{blue}\u256D\u2500%f"
-POWERLEVEL9K_MULTILINE_LAST_PROMPT_PREFIX="%F{blue}\u2570\uf460%f "
-POWERLEVEL9K_STATUS_OK=false
-POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(root_indicator dir_joined
-                                   dir_writable_joined)
-POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(
-  status command_execution_time
-  virtualenv_joined anaconda_joined pyenv_joined vcs_joined
-  background_jobs_joined time_joined
-  user_joined os_icon_joined host_joined
-)
-POWERLEVEL9K_VCS_CLEAN_BACKGROUND="clear"
-POWERLEVEL9K_VCS_CLEAN_FOREGROUND="green"
-POWERLEVEL9K_VCS_MODIFIED_BACKGROUND="clear"
-POWERLEVEL9K_VCS_MODIFIED_FOREGROUND="yellow"
-POWERLEVEL9K_VCS_UNTRACKED_BACKGROUND="clear"
-POWERLEVEL9K_VCS_UNTRACKED_FOREGROUND="yellow"
-POWERLEVEL9K_DIR_HOME_BACKGROUND="clear"
-POWERLEVEL9K_DIR_HOME_FOREGROUND="blue"
-POWERLEVEL9K_DIR_HOME_SUBFOLDER_BACKGROUND="clear"
-POWERLEVEL9K_DIR_HOME_SUBFOLDER_FOREGROUND="blue"
-POWERLEVEL9K_DIR_WRITABLE_FORBIDDEN_BACKGROUND="clear"
-POWERLEVEL9K_DIR_WRITABLE_FORBIDDEN_FOREGROUND="red"
-POWERLEVEL9K_DIR_DEFAULT_BACKGROUND="clear"
-POWERLEVEL9K_DIR_DEFAULT_FOREGROUND="cyan"
-POWERLEVEL9K_ROOT_INDICATOR_BACKGROUND="clear"
-POWERLEVEL9K_ROOT_INDICATOR_FOREGROUND="red"
-POWERLEVEL9K_STATUS_OK_BACKGROUND="clear"
-POWERLEVEL9K_STATUS_OK_FOREGROUND="green"
-POWERLEVEL9K_STATUS_ERROR_BACKGROUND="clear"
-POWERLEVEL9K_STATUS_ERROR_FOREGROUND="red"
-POWERLEVEL9K_TIME_FORMAT="%D{\uf073 %b %d \uf017 %H:%M}" #  Jun 15  09:32
-POWERLEVEL9K_TIME_ICON=
-POWERLEVEL9K_TIME_BACKGROUND="clear"
-POWERLEVEL9K_TIME_FOREGROUND="blue"
-POWERLEVEL9K_COMMAND_EXECUTION_TIME_BACKGROUND='clear'
-POWERLEVEL9K_COMMAND_EXECUTION_TIME_FOREGROUND='magenta'
-POWERLEVEL9K_BACKGROUND_JOBS_BACKGROUND='clear'
-POWERLEVEL9K_BACKGROUND_JOBS_FOREGROUND='magenta'
-POWERLEVEL9K_USER_DEFAULT_BACKGROUND='clear'
-POWERLEVEL9K_USER_DEFAULT_FOREGROUND='cyan'
-POWERLEVEL9K_USER_ROOT_BACKGROUND='clear'
-POWERLEVEL9K_USER_ROOT_FOREGROUND='red'
-POWERLEVEL9K_USER_ICON="\uf415" # 
-POWERLEVEL9K_ROOT_ICON="\u26a1" # ⚡
-POWERLEVEL9K_HOST_LOCAL_BACKGROUND='clear'
-POWERLEVEL9K_HOST_LOCAL_FOREGROUND='cyan'
-POWERLEVEL9K_HOST_REMOTE_BACKGROUND='clear'
-POWERLEVEL9K_HOST_REMOTE_FOREGROUND='magenta'
-POWERLEVEL9K_HOST_ICON="\uF109 " # 
-POWERLEVEL9K_SSH_ICON="\uF489 "  # 
-POWERLEVEL9K_OS_ICON_BACKGROUND="clear"
-POWERLEVEL9K_OS_ICON_FOREGROUND="grey"
-POWERLEVEL9K_VIRTUALENV_BACKGROUND="clear"
-POWERLEVEL9K_VIRTUALENV_FOREGROUND="cyan"
-POWERLEVEL9K_PYENV_BACKGROUND="clear"
-POWERLEVEL9K_PYENV_FOREGROUND="cyan"
-POWERLEVEL9K_ANACONDA_BACKGROUND="clear"
-POWERLEVEL9K_ANACONDA_FOREGROUND="cyan"
-
 # zsh-syntax-highlighting
 ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets pattern cursor)
 ZSH_HIGHLIGHT_PATTERNS+=('rm -rf *' 'fg=white,bold,bg=red')
@@ -99,68 +27,47 @@ ZSH_HIGHLIGHT_STYLES[bracket-level-2]='fg=green,bold'
 ZSH_HIGHLIGHT_STYLES[bracket-level-3]='fg=magenta,bold'
 ZSH_HIGHLIGHT_STYLES[bracket-level-4]='fg=yellow,bold'
 
-if [[ ! -d "${ZPLUG_HOME}" ]]; then
-  if [[ ! -d ~/.zplug ]]; then
-    git clone https://github.com/zplug/zplug ~/.zplug
-    # If we can't get zplug, it'll be a very sobering shell experience. To at
-    # least complete the sourcing of this file, we'll define an always-false
-    # returning zplug function.
-    if [[ $? != 0 ]]; then
-      function zplug() {
-        return 1
-      }
-    fi
-  fi
-  export ZPLUG_HOME=~/.zplug
+ZINIT_HOME="${XDG_DATA_HOME:-$HOME/.local/share}/zinit/zinit.git"
+if [[ ! -f "${ZINIT_HOME}/zinit.zsh" ]]; then
+  mkdir -p "$(dirname "${ZINIT_HOME}")"
+  git clone https://github.com/zdharma-continuum/zinit.git "${ZINIT_HOME}" || true
 fi
-if [[ -d "${ZPLUG_HOME}" ]]; then
-  source "${ZPLUG_HOME}/init.zsh"
+if [[ -f "${ZINIT_HOME}/zinit.zsh" ]]; then
+  source "${ZINIT_HOME}/zinit.zsh"
 fi
 
-zplug 'plugins/bundler', from:oh-my-zsh, if:'which bundle'
-zplug 'plugins/colored-man-pages', from:oh-my-zsh
-zplug 'plugins/completion', from:oh-my-zsh
-zplug 'plugins/extract', from:oh-my-zsh
-zplug 'plugins/fancy-ctrl-z', from:oh-my-zsh
-zplug 'plugins/osx', from:oh-my-zsh
-zplug 'plugins/sudo', from:oh-my-zsh
-zplug 'plugins/git', from:oh-my-zsh, if:'which git'
-#zplug 'plugins/gpg-agent', from:oh-my-zsh, if:'which gpg-agent'
-zplug 'plugins/httpie', from:oh-my-zsh, if:'which httpie'
-zplug 'plugins/nmap', from:oh-my-zsh, if:'which nmap'
+if (( $+functions[zinit] )); then
+  if command -v bundle >/dev/null 2>&1; then zinit snippet OMZP::bundler; fi
+  zinit snippet OMZP::colored-man-pages
+  zinit snippet OMZP::extract
+  zinit snippet OMZP::fancy-ctrl-z
+  zinit snippet OMZP::sudo
+  if command -v git >/dev/null 2>&1; then zinit snippet OMZP::git; fi
+  if command -v http >/dev/null 2>&1; then zinit snippet OMZP::httpie; fi
+  if command -v nmap >/dev/null 2>&1; then zinit snippet OMZP::nmap; fi
 
-#zplug 'b4b4r07/enhancd', use:init.sh
-zplug 'b4b4r07/zsh-vimode-visual', defer:3
-zplug 'jeffreytse/zsh-vi-mode'
-zplug "junegunn/fzf", use:"shell/key-bindings.zsh"
-#zplug 'knu/zsh-manydots-magic', use:manydots-magic, defer:3 
-if [[ $TERM_PROGRAM != "WarpTerminal" ]]; then
-  zplug 'romkatv/powerlevel10k', as:theme, depth:1, use:powerlevel10k.zsh-theme
-fi
-zplug 'seebi/dircolors-solarized', ignore:"*", as:plugin
-zplug 'Tarrasch/zsh-bd'
-zplug 'zsh-users/zsh-autosuggestions'
-zplug 'zsh-users/zsh-completions', defer:2
-zplug 'zsh-users/zsh-history-substring-search'
-zplug 'zsh-users/zsh-syntax-highlighting', defer:2
-
-if ! zplug check; then
-  zplug install
+  zinit light b4b4r07/zsh-vimode-visual
+  zinit light jeffreytse/zsh-vi-mode
+  zinit light seebi/dircolors-solarized
+  zinit light Tarrasch/zsh-bd
+  zinit light zsh-users/zsh-autosuggestions
+  zinit light zsh-users/zsh-completions
+  zinit light zsh-users/zsh-history-substring-search
+  zinit light zsh-users/zsh-syntax-highlighting
 fi
 
-zplug load
-
-if zplug check 'seebi/dircolors-solarized'; then
+if (( $+functions[zinit] )); then
   if which gdircolors > /dev/null 2>&1; then
     alias dircolors='gdircolors'
   fi
   if which dircolors > /dev/null 2>&1; then
     scheme='dircolors.256dark'
-    eval $(dircolors $ZPLUG_HOME/repos/seebi/dircolors-solarized/$scheme)
+    dircolors_repo="${ZINIT_HOME}/plugins/seebi---dircolors-solarized"
+    [[ -f "${dircolors_repo}/${scheme}" ]] && eval "$(dircolors "${dircolors_repo}/${scheme}")"
   fi
 fi
 
-if zplug check 'zsh-users/zsh-autosuggestions'; then
+if (( $+functions[_zsh_autosuggest_start] )); then
   # Enable asynchronous fetching of suggestions.
   ZSH_AUTOSUGGEST_USE_ASYNC=1
   # For some reason, the offered completion winds up having the same color as
@@ -242,7 +149,7 @@ alias v="$VISUAL"
 alias docker="nerdctl"
 
 # FZF
-if zplug check 'junegunn/fzf'; then
+if command -v fzf >/dev/null 2>&1; then
   export FZF_DEFAULT_OPTS='--height 30%
       --color fg:223,bg:235,hl:208,fg+:229,bg+:237,hl+:167,border:237
       --color info:246,prompt:214,pointer:214,marker:142,spinner:246,header:214'
@@ -291,7 +198,9 @@ update() {
   npm install npm -g
   npm update -g
   # Shell plugin management
-  zplug update
+  if (( $+functions[zinit] )); then
+    zinit self-update && zinit update --all || true
+  fi
   # Neovim plugin management (lazy.nvim via AstroNvim)
   if command -v nvim >/dev/null 2>&1; then
     nvim --headless "+Lazy! sync" +qa || true
@@ -344,14 +253,9 @@ fi
 export OPENAI_API_HOST="api.openai.com"
 eval "$(fnm env --use-on-cd)"
 eval "$(zoxide init zsh)"
+eval "$(starship init zsh)"
 
 export rpath="/opt/homebrew/lib/"
-
-
-zstyle ':completion:*' format $'\e[2;37mCompleting %d\e[m'
-source <(carapace _carapace)
-
-
 
 # bun completions
 [ -s "$HOME/.bun/_bun" ] && source "$HOME/.bun/_bun"
@@ -359,3 +263,7 @@ source <(carapace _carapace)
 if [[ -f "$HOME/.config/broot/launcher/bash/br" ]]; then
   source "$HOME/.config/broot/launcher/bash/br"
 fi
+
+autoload -Uz compinit && compinit
+zstyle ':completion:*' format $'\e[2;37mCompleting %d\e[m'
+source <(carapace _carapace)
