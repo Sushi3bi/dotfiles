@@ -267,3 +267,4 @@ fi
 autoload -Uz compinit && compinit
 zstyle ':completion:*' format $'\e[2;37mCompleting %d\e[m'
 source <(carapace _carapace)
+eval "$(pyenv init -)"
