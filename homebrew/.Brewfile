@@ -3,6 +3,7 @@ tap "buo/cask-upgrade"
 tap "homebrew/autoupdate"
 tap "oven-sh/bun"
 tap "rsteube/tap"
+tap "gromgit/brewtils"
 
 cask "ungoogled-chromium"
 cask "font-arial"
@@ -28,13 +29,12 @@ cask "balenaetcher"
 cask "betterdisplay"
 cask "boosteroid"
 cask "blender"
-# cask "chatgpt"
+cask "chatgpt"
 cask "clearvpn"
 cask "cyberduck"
 cask "elmedia-player"
 cask "iina"
 cask "keka"
-cask "key-codes"
 cask "krita"
 cask "knockknock"
 cask "onyx"
@@ -42,8 +42,7 @@ cask "signal"
 cask "soundsource"
 cask "stats"
 cask "superkey"
-# cask "tradingview"t
-
+# cask "tradingview"
 
 brew "ast-grep"
 brew "batt"
@@ -83,6 +82,7 @@ brew "posting"
 brew "pyenv"
 brew "ripgrep"
 brew "starship"
+brew "taproom"
 brew "the_silver_searcher"
 brew "tealdeer"
 brew "tree-sitter"
@@ -102,10 +102,10 @@ mas "DNSecure", id: 1533413232
 mas "uBlock Origin Lite", id: 6745342698
 mas "Ice Cubes", id: 6444915884
 mas "iMovie", id: 408981434
-mas "Keynote", id: 409183694
+mas "Keynote", id: 361285480
 mas "Noir", id: 1592917505
-mas "Numbers", id: 409203825
-mas "Pages", id: 409201541
+mas "Numbers", id: 361304891
+mas "Pages", id: 361309726
 # mas "Redirect Web", id: 1571283503
 mas "Reeder", id: 6475002485
 mas "StopTheMadness Pro", id: 6471380298
