@@ -63,7 +63,7 @@ brew "gh"
 brew "git"
 brew "git-delta"
 brew "gitui"
-brew "glow" #Render markdown on the CLI
+brew "glow" # Render markdown on the CLI
 brew "gnupg"
 brew "hblock"
 brew "htop"

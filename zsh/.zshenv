@@ -52,7 +52,9 @@ if [[ -f ~/.zshenv.local ]]; then
   source ~/.zshenv.local
 fi
 
-source "$HOME/.cargo/env"
+if [[ -f "$HOME/.cargo/env" ]]; then
+  source "$HOME/.cargo/env"
+fi
 
 #pyenv
 export PYENV_ROOT="$HOME/.pyenv"
@@ -61,4 +63,3 @@ eval "$(pyenv init -)"
 
 #libretranlate
 export LT_LOAD_ONLY="en,uk,ja"
-. "$HOME/.cargo/env"

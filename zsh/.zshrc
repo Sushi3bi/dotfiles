@@ -239,154 +239,7 @@ setopt extended_glob
 alias e="$EDITOR"
 alias v="$VISUAL"
 
-# Directory coloring
-if which gls > /dev/null 2>&1; then
-  # Prefer GNU version, since it respects dircolors.
-  alias ls='gls --group-directories-first --color=auto'
-elif [[ $OSTYPE = (darwin|freebsd)* ]]; then
-  export CLICOLOR="YES" # Equivalent to passing -G to ls.
-  export LSCOLORS="exgxdHdHcxaHaHhBhDeaec"
-else
-  alias ls='ls --group-directories-first --color=auto'
-fi
-
-# Directory management
-alias la='ls -a'
-alias ll='ls -l'
-alias lal='ls -al'
-alias dirs='dirs -v'
-push() { pushd $1 > /dev/null 2>&1; dirs -v; }
-pop() { popd > /dev/null 2>&1; dirs -v }
-
-# Generic command adaptations.
-alias grep='grep --color=auto'
-alias fgrep='fgrep --color=auto'
-alias egrep='egrep --color=auto'
-
-# OS-specific aliases
-if [[ $OSTYPE = darwin* ]]; then
-  # Lock screen (e.g., when leaving computer).
-  alias afk="/System/Library/CoreServices/Menu\ Extras/User.menu/Contents/Resources/CGSession -suspend"
-  # Hide/show all desktop icons (useful when presenting)
-  alias hidedesktop="defaults write com.apple.finder CreateDesktop -bool false \
-    && killall Finder"
-  alias showdesktop="defaults write com.apple.finder CreateDesktop -bool true \
-    && killall Finder"
-fi
-
 alias docker="nerdctl"
-
-# alias: git
-alias g="git"
-alias ga="git add"
-alias gaa="git add --all"
-alias gb="git branch"
-alias gbd="git branch -D"
-alias gbl="git blame"
-alias gc="git commit -v"
-alias gc!="git commit -v --amend"
-alias gcn!="git commit -v --amend --no-edit"
-alias gca="git commit -a -v"
-alias gca!="git commit -a -v --amend"
-alias gcan!="git commit -a -v --no-edit --amend"
-alias gcans!="git commit -a -v -s --no-edit --amend"
-alias gcl="git clone --recursive"
-alias gcf="git config --list"
-alias gclean="git clean -fd"
-alias gco="git checkout"
-alias gcob="git checkout -b"
-alias gcom="git checkout main"
-alias gcp="git cherry-pick"
-alias gcpa="git cherry-pick --abort"
-alias gcpc="git cherry-pick --continue"
-alias gd="git diff"
-alias gdc="git diff --cached"
-alias gf="git fetch"
-alias gfa="git fetch --all --prune"
-alias gfo="git fetch origin"
-alias gl="git log"
-alias gla="git log --all --graph --pretty=\"%Cred%h%Creset -%C(auto)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset\""
-alias glg="git log --graph"
-alias glp="git log --patch"
-alias gm="git merge"
-alias gma="git merge --abort"
-alias gmc="git merge --continue"
-alias gp="git push"
-alias gpu="git push --set-upstream origin (git symbolic-ref HEAD | sed \"s/refs\/heads\///\")"
-alias gpf="git push --force"
-alias gpt="git push --tags"
-alias gptf="git push --tags --force"
-alias gpoat="git push origin --all && git push origin --tags"
-alias gpoatf="git push origin --all -f && git push origin --tags -f"
-alias gpl="git pull"
-alias gplo="git pull origin"
-alias gplom="git pull origin master"
-alias gplu="git pull upstream"
-alias gplum="git pull upstream master"
-alias gr="git remote -v"
-alias gra="git remote add"
-alias grau="git remote add upstream"
-alias grrm="git remote remove"
-alias grmv="git remote rename"
-alias grset="git remote set-url"
-alias grb="git rebase"
-alias grbpr="git rebase --interactive --rebase-merges \$(git merge-base origin/master HEAD)"
-alias grba="git rebase --abort"
-alias grbc="git rebase --continue"
-alias gr="git reset"
-alias gru="git reset @{u}"
-alias grh="git reset --hard"
-alias grhu="git reset --hard @{u}"
-alias grhh="git reset --hard HEAD"
-alias gst="git status"
-alias gsts="git status -s"
-alias gsh="git stash push"
-alias gsha="git stash apply"
-alias gshd="git stash drop"
-alias gshp="git stash pop"
-alias gsu="git submodule update"
-alias gts="git tag -s"
-alias gw="git worktree"
-alias gwa="git worktree add"
-alias gwr="git worktree remove"
-
-# =============================================================================
-#                                Key Bindings
-# =============================================================================
-
-bindkey -v
-
-# Common CTRL bindings.
-bindkey '^a' beginning-of-line
-bindkey '^e' end-of-line
-bindkey '^f' forward-word
-bindkey '^b' backward-word
-bindkey '^k' kill-line
-bindkey '^d' delete-char
-bindkey '^y' accept-and-hold
-bindkey '^?' backward-delete-char
-bindkey '^h' backward-delete-char
-bindkey '^w' backward-kill-word
-bindkey '^u' backward-kill-line
-
-# More convenient acceptance of suggested command line.
-if zplug check 'zsh-users/zsh-autosuggestions'; then
-  bindkey '^ ' autosuggest-execute
-fi
-
-# History
-if zplug check 'zsh-users/zsh-history-substring-search'; then
-  zmodload zsh/terminfo
-  bindkey "$terminfo[kcuu1]" history-substring-search-up
-  bindkey "$terminfo[kcud1]" history-substring-search-down
-  bindkey '^p' history-substring-search-up
-  bindkey '^n' history-substring-search-down
-  bindkey -M vicmd 'k' history-substring-search-up
-  bindkey -M vicmd 'j' history-substring-search-down
-fi
-
-# Do not require a space when attempting to tab-complete.
-bindkey '^i' expand-or-complete-prefix
 
 # FZF
 if zplug check 'junegunn/fzf'; then
@@ -439,7 +292,10 @@ update() {
   npm update -g
   # Shell plugin management
   zplug update
-  vim +PlugUpgrade +PlugUpdate +PlugCLean! +qa
+  # Neovim plugin management (lazy.nvim via AstroNvim)
+  if command -v nvim >/dev/null 2>&1; then
+    nvim --headless "+Lazy! sync" +qa || true
+  fi
 }
 
 # =============================================================================
@@ -453,7 +309,12 @@ fi
 
 export NODE_EXTRA_CA_CERTS=/System/Volumes/Data/opt/homebrew/etc/ca-certificates/cert.pem
 
-export HOMEBREW_GITHUB_API_TOKEN=$(security find-generic-password -w -s 'GITHUB' -a 'HOMEBREW_GITHUB_API_TOKEN')
+if command -v security >/dev/null 2>&1; then
+  brew_token="$(security find-generic-password -w -s 'GITHUB' -a 'HOMEBREW_GITHUB_API_TOKEN' 2>/dev/null || true)"
+  if [[ -n "$brew_token" ]]; then
+    export HOMEBREW_GITHUB_API_TOKEN="$brew_token"
+  fi
+fi
 eval "$(/opt/homebrew/bin/brew shellenv)"
 
 # Setup GPG for user accounts.
@@ -474,11 +335,15 @@ export DENO_INSTALL="$HOME/.deno"
 export DOTNET_CLI_TELEMETRY_OPTOUT="1"
 
 #todo:set into separate file
-export OPENAI_API_KEY=$(security find-generic-password -w -s 'OPEN_API' -a 'ACCESS_KEY')
+if command -v security >/dev/null 2>&1; then
+  openai_key="$(security find-generic-password -w -s 'OPEN_API' -a 'ACCESS_KEY' 2>/dev/null || true)"
+  if [[ -n "$openai_key" ]]; then
+    export OPENAI_API_KEY="$openai_key"
+  fi
+fi
 export OPENAI_API_HOST="api.openai.com"
 eval "$(fnm env --use-on-cd)"
 eval "$(zoxide init zsh)"
-source ~/.config/broot/launcher/bash/br
 
 export rpath="/opt/homebrew/lib/"
 
@@ -491,4 +356,6 @@ source <(carapace _carapace)
 # bun completions
 [ -s "$HOME/.bun/_bun" ] && source "$HOME/.bun/_bun"
 
-source "$HOME/.config/broot/launcher/bash/br"
+if [[ -f "$HOME/.config/broot/launcher/bash/br" ]]; then
+  source "$HOME/.config/broot/launcher/bash/br"
+fi
