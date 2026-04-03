@@ -12,3 +12,7 @@ cmd({ "BufNewFile", "BufRead" }, {
     vim.api.nvim_buf_set_option(buf, "filetype", "groovy")
   end,
 })
+
+cmd({ "FocusGained", "VimResume" }, {
+  callback = function() require("theme").apply() end,
+})

@@ -4,10 +4,9 @@
 --       as this provides autocomplete and documentation while editing
 ---@type LazySpec
 return {
-    "AstroNvim/astroui",
-    ---@type AstroUIOpts
-    opts = {
-        -- change colorscheme
-        colorscheme = "tokyonight-moon" --"catppuccin-mocha", --"gruvbox-baby",
-    },
+  "AstroNvim/astroui",
+  ---@type AstroUIOpts
+  opts = function(_, opts)
+    opts.colorscheme = require("theme").current()
+  end,
 }

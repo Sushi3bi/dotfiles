@@ -6,3 +6,4 @@ zed/conversations
 zed/embeddings
 zed/prompts
 .hammerspoon/wm_settings.json
+*.log
