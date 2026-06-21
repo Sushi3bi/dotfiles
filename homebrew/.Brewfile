@@ -42,7 +42,8 @@ cask "superkey" # Search and click text anywhere on screen
 # cask "tradingview" # Charting and social-networking for investment traders
 
 #ai
-cask "chatgpt" # OpenAI's official ChatGPT desktop app
+# cask "chatgpt" # OpenAI's official ChatGPT desktop app
+cask "codex-app" # OpenAI's Codex desktop app for managing coding agents
 cask "codex" # OpenAI's coding agent that runs in your terminal
 
 brew "ast-grep" # Code searching, linting, rewriting
