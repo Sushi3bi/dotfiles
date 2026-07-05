@@ -1,11 +1,9 @@
 
 tap "buo/cask-upgrade" # Third-party tap for cask upgrade helpers
 tap "homebrew/autoupdate" # Official tap for automatic Homebrew updates and upgrades
-tap "oven-sh/bun" # Bun runtime and package manager tap
 tap "rsteube/tap" # Third-party tap for completion and shell tooling
 tap "gromgit/brewtils" # Third-party tap with extra Homebrew utilities
 
-cask "boosteroid" # Cloud gaming service
 cask "ungoogled-chromium" # Google Chromium, sans integration with Google
 cask "font-arial" # Arial font family
 cask "font-fira-code" # Fira Code font family
@@ -39,16 +37,12 @@ cask "signal" # Instant messaging application focusing on security
 cask "soundsource" # Sound and audio controller
 cask "stats" # System monitor for the menu bar
 cask "superkey" # Search and click text anywhere on screen
-# cask "tradingview" # Charting and social-networking for investment traders
 
 #ai
-# cask "chatgpt" # OpenAI's official ChatGPT desktop app
-cask "codex-app" # OpenAI's Codex desktop app for managing coding agents
 cask "codex" # OpenAI's coding agent that runs in your terminal
 
 brew "ast-grep" # Code searching, linting, rewriting
 brew "batt" # Control and limit battery charging on Apple Silicon MacBooks
-brew "bun" # Incredibly fast JavaScript runtime, bundler, transpiler and package manager - all in one.
 brew "ca-certificates" # Mozilla CA certificate store
 brew "bat" # Clone of cat(1) with syntax highlighting and Git integration
 brew "broot" # New way to see and navigate directory trees
@@ -100,7 +94,6 @@ mas "DaisyDisk", id: 411643860 # Disk space visualizer
 mas "Developer", id: 640199958 # Apple developer news and videos
 # mas "Dictionaries", id: 1380563956 # Dictionary and language reference app
 mas "DNSecure", id: 1533413232 # DNS privacy and security utility
-# mas "Ghostery Privacy Ad Blocker", id: 6504861501 # Privacy-focused content blocker
 mas "uBlock Origin Lite", id: 6745342698 # Lightweight content blocker
 mas "Ice Cubes", id: 6444915884 # Mastodon client
 mas "iMovie", id: 408981434 # Video editing app
@@ -108,7 +101,6 @@ mas "Keynote", id: 361285480 # Presentation app
 mas "Noir", id: 1592917505 # Dark mode for websites in Safari
 mas "Numbers", id: 361304891 # Spreadsheet app
 mas "Pages", id: 361309726 # Word processor and page layout app
-# mas "Redirect Web", id: 1571283503 # Browser redirect utility
 mas "Reeder", id: 6475002485 # RSS and read-later client
 mas "StopTheMadness Pro", id: 6471380298 # Safari browsing quality-of-life extension
 mas "TestFlight", id: 899247664 # Beta testing app for Apple platforms
