@@ -7,6 +7,8 @@
 // custom settings, run the `open default settings` command
 // from the command palette or from `Zed` application menu.
 {
+  "format_on_save": "on",
+  "tab_size": 2,
   "project_panel": {
     "dock": "left"
   },
@@ -29,18 +31,16 @@
   },
   "languages": {
     "TypeScript": {
-      "formatter": {
-        "code_actions": {
-          "source.fixAll.eslint": true
-        }
-      }
+      "code_actions_on_format": {
+        "source.fixAll.eslint": true
+      },
+      "formatter": []
     },
     "JavaScript": {
-      "formatter": {
-        "code_actions": {
-          "source.fixAll.eslint": true
-        }
-      }
+      "code_actions_on_format": {
+        "source.fixAll.eslint": true
+      },
+      "formatter": []
     }
   },
   "theme": {

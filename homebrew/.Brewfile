@@ -37,6 +37,7 @@ cask "signal" # Instant messaging application focusing on security
 cask "soundsource" # Sound and audio controller
 cask "stats" # System monitor for the menu bar
 cask "superkey" # Search and click text anywhere on screen
+cask "zed" # Multiplayer code editor
 
 #ai
 cask "codex" # OpenAI's coding agent that runs in your terminal
