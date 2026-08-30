@@ -17,20 +17,20 @@ cask "ghostty" # Terminal emulator that uses platform-native UI and GPU accelera
 cask "hammerspoon" # Desktop automation application
 cask "keka" # File archiver
 cask "key-codes" # Display key code, unicode value and modifier keys state for any key combination
-cask "maccy" # Clipboard manager
+# cask "maccy" # Clipboard manager
 cask "pearcleaner" # Utility to uninstall apps and remove leftover files from old/uninstalled apps
-cask "shutter-encoder" # Video, audio and image converter
+# cask "shutter-encoder" # Video, audio and image converter
 cask "transmission" # Open-source BitTorrent client
 cask "vlc" # Multimedia player
 cask "balenaetcher" # Tool to flash OS images to SD cards & USB drives
 cask "betterdisplay" # Display management tool
-cask "blender" # 3D creation suite
+# cask "blender" # 3D creation suite
 cask "clearvpn" # VPN client
-cask "cyberduck" # Server and cloud storage browser
+# cask "cyberduck" # Server and cloud storage browser
 cask "elmedia-player" # Video and audio player
 cask "iina" # Free and open-source media player
 cask "keka" # File archiver
-cask "krita" # Free and open-source painting and sketching program
+# cask "krita" # Free and open-source painting and sketching program
 cask "knockknock" # Tool to show what is persistently installed on the computer
 cask "onyx" # Verify system files structure, run miscellaneous maintenance and more
 cask "signal" # Instant messaging application focusing on security
@@ -80,6 +80,7 @@ brew "pyenv" # Python version management
 brew "ripgrep" # Search tool like grep and The Silver Searcher
 brew "starship" # Cross-shell prompt for astronauts
 brew "taproom" # Interactive TUI for Homebrew
+brew "thaw" # Menu bar manager
 brew "the_silver_searcher" # Code-search similar to ack
 brew "tealdeer" # Very fast implementation of tldr in Rust
 brew "tree-sitter" # Incremental parsing library

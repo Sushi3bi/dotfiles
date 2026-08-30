@@ -4,6 +4,7 @@ theme = light:Tokyonight Day,dark:Tokyonight
 font-family = "MonaspiceNe Nerd Font Mono" #main font
 font-family = "JetBrainsMono Nerd Font" #cyrillic
 font-size = 12
+font-style = Normal
 font-feature = +calt,+liga,+dlig,+ss01,+ss02,+ss03,+ss04,+ss05,+ss06,+ss07,+ss08,+cv06,+cv12,+cv14,+cv16,+cv25,+cv26,+cv28,+cv29,+cv31,+cv32
 
 
