@@ -1,11 +1,16 @@
 ---@type LazySpec
 return {
   "ThePrimeagen/vim-be-good", --:VimBeGood
-  "aznhe21/actions-preview.nvim",
   {
     "tris203/precognition.nvim",
     opts = {
       disabled_fts = { "startify", "markdown" },
+    },
+  },
+  {
+    "m4xshen/hardtime.nvim",
+    opts = {
+      disable_mouse = false
     },
   },
   {

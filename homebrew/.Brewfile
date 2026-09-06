@@ -29,7 +29,6 @@ cask "clearvpn" # VPN client
 # cask "cyberduck" # Server and cloud storage browser
 cask "elmedia-player" # Video and audio player
 cask "iina" # Free and open-source media player
-cask "keka" # File archiver
 # cask "krita" # Free and open-source painting and sketching program
 cask "knockknock" # Tool to show what is persistently installed on the computer
 cask "onyx" # Verify system files structure, run miscellaneous maintenance and more

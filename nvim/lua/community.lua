@@ -33,4 +33,6 @@ return {
 
   { import = "astrocommunity.workflow.hardtime-nvim" },
   { import = "astrocommunity.workflow.precognition-nvim" },
+
+  { import = "astrocommunity.lsp.actions-preview-nvim" }
 }
