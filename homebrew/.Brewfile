@@ -16,7 +16,7 @@ cask "font-symbols-only-nerd-font" # Symbols-only Nerd Font family
 cask "ghostty" # Terminal emulator that uses platform-native UI and GPU acceleration
 cask "hammerspoon" # Desktop automation application
 cask "keka" # File archiver
-cask "key-codes" # Display key code, unicode value and modifier keys state for any key combination
+# kcask "key-codes" # Display key code, unicode value and modifier keys state for any key combination
 # cask "maccy" # Clipboard manager
 cask "pearcleaner" # Utility to uninstall apps and remove leftover files from old/uninstalled apps
 # cask "shutter-encoder" # Video, audio and image converter
@@ -34,12 +34,14 @@ cask "knockknock" # Tool to show what is persistently installed on the computer
 cask "onyx" # Verify system files structure, run miscellaneous maintenance and more
 cask "signal" # Instant messaging application focusing on security
 cask "soundsource" # Sound and audio controller
-cask "stats" # System monitor for the menu bar
+# cask "stats" # System monitor for the menu bar
 cask "superkey" # Search and click text anywhere on screen
+cask "thaw" # Menu bar manager
 cask "zed" # Multiplayer code editor
 
 #ai
 cask "codex" # OpenAI's coding agent that runs in your terminal
+cask "chatgpt" # OpenAI's official ChatGPT desktop app
 
 brew "ast-grep" # Code searching, linting, rewriting
 brew "batt" # Control and limit battery charging on Apple Silicon MacBooks
@@ -79,7 +81,6 @@ brew "pyenv" # Python version management
 brew "ripgrep" # Search tool like grep and The Silver Searcher
 brew "starship" # Cross-shell prompt for astronauts
 brew "taproom" # Interactive TUI for Homebrew
-brew "thaw" # Menu bar manager
 brew "the_silver_searcher" # Code-search similar to ack
 brew "tealdeer" # Very fast implementation of tldr in Rust
 brew "tree-sitter" # Incremental parsing library
@@ -107,4 +108,4 @@ mas "StopTheMadness Pro", id: 6471380298 # Safari browsing quality-of-life exten
 mas "TestFlight", id: 899247664 # Beta testing app for Apple platforms
 mas "Video Converter", id: 1518836004 # Video conversion utility
 mas "Xcode", id: 497799835 # Apple IDE and SDKs
-mas "Yesterday For Old Reddit", id: 1603279883 # Old Reddit companion extension
+# mas "Yesterday For Old Reddit", id: 1603279883 # Old Reddit companion extension
