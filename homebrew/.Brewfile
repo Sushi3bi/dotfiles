@@ -6,8 +6,6 @@ tap "gromgit/brewtils" # Third-party tap with extra Homebrew utilities
 
 cask "ungoogled-chromium" # Google Chromium, sans integration with Google
 cask "font-arial" # Arial font family
-cask "font-fira-code" # Fira Code font family
-cask "font-fira-code-nerd-font" # Fira Code Nerd Font family
 cask "font-jetbrains-mono-nerd-font" # JetBrains Mono Nerd Font family
 cask "font-meslo-lg-nerd-font" # Meslo LG Nerd Font family
 cask "font-monaspace" # Monaspace font family

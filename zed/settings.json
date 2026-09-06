@@ -7,6 +7,7 @@
 // custom settings, run the `open default settings` command
 // from the command palette or from `Zed` application menu.
 {
+  "buffer_line_height": "standard",
   "format_on_save": "on",
   "tab_size": 2,
   "project_panel": {
@@ -49,7 +50,7 @@
     "dark": "Tokyo Night"
   },
   "ui_font_size": 14,
-  "buffer_font_size": 12,
+  "buffer_font_size": 12.0,
   "terminal": {
     "shell": {
       "program": "nu"
