@@ -21,7 +21,7 @@ return {
   { import = "astrocommunity.pack.typescript" },
   { import = "astrocommunity.pack.yaml" },
 
-  { import = "astrocommunity.markdown-and-latex.markview-nvim" },
+  { import = "astrocommunity.markdown-and-latex.render-markdown-nvim" }, --markview-nvim" },
 
   { import = "astrocommunity.test.neotest" },
   { import = "astrocommunity.scrolling.neoscroll-nvim" },

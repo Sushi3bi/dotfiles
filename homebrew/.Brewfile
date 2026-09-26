@@ -16,7 +16,6 @@ cask "hammerspoon" # Desktop automation application
 cask "keka" # File archiver
 # kcask "key-codes" # Display key code, unicode value and modifier keys state for any key combination
 # cask "maccy" # Clipboard manager
-cask "pearcleaner" # Utility to uninstall apps and remove leftover files from old/uninstalled apps
 # cask "shutter-encoder" # Video, audio and image converter
 cask "transmission" # Open-source BitTorrent client
 cask "vlc" # Multimedia player
@@ -28,8 +27,9 @@ cask "clearvpn" # VPN client
 cask "elmedia-player" # Video and audio player
 cask "iina" # Free and open-source media player
 # cask "krita" # Free and open-source painting and sketching program
-cask "knockknock" # Tool to show what is persistently installed on the computer
-cask "onyx" # Verify system files structure, run miscellaneous maintenance and more
+# cask "knockknock" # Tool to show what is persistently installed on the computer
+# cask "onyx" # Verify system files structure, run miscellaneous maintenance and more
+cask "puremac" #Open-source application manager and system cleaner
 cask "signal" # Instant messaging application focusing on security
 cask "soundsource" # Sound and audio controller
 # cask "stats" # System monitor for the menu bar
@@ -95,15 +95,12 @@ mas "Developer", id: 640199958 # Apple developer news and videos
 # mas "Dictionaries", id: 1380563956 # Dictionary and language reference app
 mas "DNSecure", id: 1533413232 # DNS privacy and security utility
 mas "uBlock Origin Lite", id: 6745342698 # Lightweight content blocker
-mas "Ice Cubes", id: 6444915884 # Mastodon client
 mas "iMovie", id: 408981434 # Video editing app
 mas "Keynote", id: 361285480 # Presentation app
 mas "Noir", id: 1592917505 # Dark mode for websites in Safari
 mas "Numbers", id: 361304891 # Spreadsheet app
 mas "Pages", id: 361309726 # Word processor and page layout app
-mas "Reeder", id: 6475002485 # RSS and read-later client
 mas "StopTheMadness Pro", id: 6471380298 # Safari browsing quality-of-life extension
 mas "TestFlight", id: 899247664 # Beta testing app for Apple platforms
 mas "Video Converter", id: 1518836004 # Video conversion utility
-mas "Xcode", id: 497799835 # Apple IDE and SDKs
 # mas "Yesterday For Old Reddit", id: 1603279883 # Old Reddit companion extension

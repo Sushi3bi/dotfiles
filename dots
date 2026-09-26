@@ -121,12 +121,10 @@ main() {
     [[ -z "$src" ]] && continue
     link_path "$src" "$dst"
   done <<EOF
-${dotdir}/.hammerspoon	${HOME}/.hammerspoon
 ${dotdir}/nushell/config.nu	${HOME}/Library/Application Support/nushell/config.nu
 ${dotdir}/nvim	${HOME}/.config/nvim
 ${dotdir}/bat	${HOME}/.config/bat
 ${dotdir}/btop	${HOME}/.config/btop
-${dotdir}/zed	${HOME}/.config/zed
 ${dotdir}/ghostty	${HOME}/.config/ghostty
 ${dotdir}/gpg/gpg-agent.conf	${HOME}/.gnupg/gpg-agent.conf
 ${dotdir}/gpg/gpg.conf	${HOME}/.gnupg/gpg.conf
