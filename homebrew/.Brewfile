@@ -42,7 +42,6 @@ cask "codex" # OpenAI's coding agent that runs in your terminal
 cask "chatgpt" # OpenAI's official ChatGPT desktop app
 
 brew "ast-grep" # Code searching, linting, rewriting
-brew "batt" # Control and limit battery charging on Apple Silicon MacBooks
 brew "ca-certificates" # Mozilla CA certificate store
 brew "bat" # Clone of cat(1) with syntax highlighting and Git integration
 brew "broot" # New way to see and navigate directory trees
