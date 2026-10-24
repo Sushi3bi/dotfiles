@@ -5,6 +5,7 @@ tap "rsteube/tap" # Third-party tap for completion and shell tooling
 tap "gromgit/brewtils" # Third-party tap with extra Homebrew utilities
 
 cask "ungoogled-chromium" # Google Chromium, sans integration with Google
+cask "flux-markdown"
 cask "font-arial" # Arial font family
 cask "font-jetbrains-mono-nerd-font" # JetBrains Mono Nerd Font family
 cask "font-meslo-lg-nerd-font" # Meslo LG Nerd Font family
@@ -14,11 +15,12 @@ cask "font-symbols-only-nerd-font" # Symbols-only Nerd Font family
 cask "ghostty" # Terminal emulator that uses platform-native UI and GPU acceleration
 cask "hammerspoon" # Desktop automation application
 cask "keka" # File archiver
-# kcask "key-codes" # Display key code, unicode value and modifier keys state for any key combination
-# cask "maccy" # Clipboard manager
+# cask "key-codes" # Display key code, unicode value and modifier keys state for any key combination
 # cask "shutter-encoder" # Video, audio and image converter
+cask "macpacker" # Archive manager
 cask "transmission" # Open-source BitTorrent client
 cask "vlc" # Multimedia player
+cask "vorssaint" # Menu bar toolkit with keep-awake, system monitor and volume mixer
 cask "balenaetcher" # Tool to flash OS images to SD cards & USB drives
 cask "betterdisplay" # Display management tool
 # cask "blender" # 3D creation suite
@@ -27,19 +29,14 @@ cask "clearvpn" # VPN client
 cask "elmedia-player" # Video and audio player
 cask "iina" # Free and open-source media player
 # cask "krita" # Free and open-source painting and sketching program
-# cask "knockknock" # Tool to show what is persistently installed on the computer
-# cask "onyx" # Verify system files structure, run miscellaneous maintenance and more
-cask "puremac" #Open-source application manager and system cleaner
 cask "signal" # Instant messaging application focusing on security
 cask "soundsource" # Sound and audio controller
-# cask "stats" # System monitor for the menu bar
 cask "superkey" # Search and click text anywhere on screen
 cask "thaw" # Menu bar manager
-cask "zed" # Multiplayer code editor
+# cask "zed" # Multiplayer code editor
 
 #ai
-cask "codex" # OpenAI's coding agent that runs in your terminal
-cask "chatgpt" # OpenAI's official ChatGPT desktop app
+# cask "codex" # OpenAI's coding agent that runs in your terminal
 
 brew "ast-grep" # Code searching, linting, rewriting
 brew "ca-certificates" # Mozilla CA certificate store
@@ -67,6 +64,7 @@ brew "jq" # Lightweight and flexible command-line JSON processor
 brew "lazygit" # Simple terminal UI for git commands
 brew "luarocks" # Package manager for the Lua programming language
 brew "mas" # Mac App Store command-line interface
+brew "mole" # Deep clean and optimize your Mac
 brew "ncdu" # NCurses Disk Usage
 brew "neovim" # Ambitious Vim-fork focused on extensibility and agility
 brew "nmap" # Port scanning utility for large networks
