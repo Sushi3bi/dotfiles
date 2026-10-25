@@ -126,6 +126,8 @@ ${dotdir}/nvim	${HOME}/.config/nvim
 ${dotdir}/bat	${HOME}/.config/bat
 ${dotdir}/btop	${HOME}/.config/btop
 ${dotdir}/ghostty	${HOME}/.config/ghostty
+${dotdir}/borders ${HOME}/.config/borders
+${dotdir}/rift ${HOME}/.config/rift
 ${dotdir}/gpg/gpg-agent.conf	${HOME}/.gnupg/gpg-agent.conf
 ${dotdir}/gpg/gpg.conf	${HOME}/.gnupg/gpg.conf
 ${dotdir}/git/ignore	${HOME}/.config/git/ignore

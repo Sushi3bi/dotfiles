@@ -3,6 +3,8 @@ tap "buo/cask-upgrade" # Third-party tap for cask upgrade helpers
 tap "homebrew/autoupdate" # Official tap for automatic Homebrew updates and upgrades
 tap "rsteube/tap" # Third-party tap for completion and shell tooling
 tap "gromgit/brewtils" # Third-party tap with extra Homebrew utilities
+tap "acsandmann/tap"
+tap "FelixKratz/formulae"
 
 cask "ungoogled-chromium" # Google Chromium, sans integration with Google
 cask "flux-markdown"
@@ -34,13 +36,17 @@ cask "soundsource" # Sound and audio controller
 cask "superkey" # Search and click text anywhere on screen
 cask "thaw" # Menu bar manager
 # cask "zed" # Multiplayer code editor
+cask "raycast"
+cask "rift"
+
 
 #ai
-# cask "codex" # OpenAI's coding agent that runs in your terminal
+cask "codex" # OpenAI's coding agent that runs in your terminal
 
 brew "ast-grep" # Code searching, linting, rewriting
 brew "ca-certificates" # Mozilla CA certificate store
 brew "bat" # Clone of cat(1) with syntax highlighting and Git integration
+brew "borders"
 brew "broot" # New way to see and navigate directory trees
 brew "btop" # Resource monitor. C++ version and continuation of bashtop and bpytop
 brew "carapace" # Multi-shell multi-command argument completer
