@@ -15,8 +15,7 @@ animation_fps = 100.0
 # - If true, spaces start inactive (rift does not manage windows there)
 #   and you must toggle activation via a keybind (toggle_space_activated).
 # - If false, spaces are managed by default and you can disable specific ones.
-# Default is true; uncomment to change.
-#default_disable = false
+default_disable = false
 
 # Mouse/Focus behavior
 # - focus_follows_mouse: moving the mouse into a window focuses it
@@ -179,14 +178,14 @@ default_orientation = "perpendicular"
 #   Use the display's UUID as the key (for example, from system profiler or via rift CLI).
 
 [settings.layout.gaps.outer]
-top = 0
-left = 0
-bottom = 0
-right = 0
+top = 5
+left = 5
+bottom = 5
+right = 5
 
 [settings.layout.gaps.inner]
-horizontal = 0
-vertical = 0
+horizontal = 5
+vertical = 5
 
 # Example per-display overrides:
 # Replace the quoted key with your display's UUID. Only specify values you want to override.
@@ -246,7 +245,7 @@ spacing = 0.0
 enabled = false
 # If true, Rift consumes horizontal swipes handled by its trackpad gesture handlers
 # so macOS and the foreground app do not also handle them
-consume_dock_swipe = true
+consume_dock_swipe = false
 # Invert horizontal direction (swap next/prev)
 invert_horizontal_swipe = false
 # Maximum vertical travel allowed for the horizontal swipe to register.
@@ -291,7 +290,7 @@ preview = true
 # - prevent_wrapping: when true, next/previous workspace switching stops at the first/last
 #   workspace instead of wrapping around
 # - reapply_app_rules_on_title_change: if true, app rules are re-evaluated when a window's title changes
-enabled = true
+enabled = false
 default_workspace_count = 4
 auto_assign_windows = true
 preserve_focus_per_workspace = true
@@ -484,17 +483,18 @@ comb1 = "Alt + Shift"
 "comb1 + K" = { move_node = "up" }
 "comb1 + L" = { move_node = "right" }
 
-"Alt + 0" = { switch_to_workspace = 0 }
-"Alt + 1" = { switch_to_workspace = 1 }
-"Alt + 2" = { switch_to_workspace = 2 }
-"Alt + 3" = { switch_to_workspace = 3 }
+# Virtual workspace shortcuts are disabled; use native macOS Space shortcuts.
+# "Alt + 0" = { switch_to_workspace = 0 }
+# "Alt + 1" = { switch_to_workspace = 1 }
+# "Alt + 2" = { switch_to_workspace = 2 }
+# "Alt + 3" = { switch_to_workspace = 3 }
 
-"comb1 + 0" = { move_window_to_workspace = 0 }
-"comb1 + 1" = { move_window_to_workspace = 1 }
-"comb1 + 2" = { move_window_to_workspace = 2 }
-"comb1 + 3" = { move_window_to_workspace = 3 }
+# "comb1 + 0" = { move_window_to_workspace = 0 }
+# "comb1 + 1" = { move_window_to_workspace = 1 }
+# "comb1 + 2" = { move_window_to_workspace = 2 }
+# "comb1 + 3" = { move_window_to_workspace = 3 }
 
-"Alt + Tab" = "switch_to_last_workspace"
+# "Alt + Tab" = "switch_to_last_workspace"
 
 # commands to change the layout engine of the active workspace
 # "Alt + Ctrl + 1" = { set_workspace_layout = { mode = "traditional" } }
