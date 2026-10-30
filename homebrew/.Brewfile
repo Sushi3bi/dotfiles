@@ -33,7 +33,6 @@ cask "iina" # Free and open-source media player
 # cask "krita" # Free and open-source painting and sketching program
 cask "signal" # Instant messaging application focusing on security
 cask "soundsource" # Sound and audio controller
-cask "superkey" # Search and click text anywhere on screen
 cask "thaw" # Menu bar manager
 # cask "zed" # Multiplayer code editor
 cask "raycast"
